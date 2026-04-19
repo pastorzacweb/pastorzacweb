@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact – Pastor Zac Akinadewo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-style:none}
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:#1a4fd6}
+.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.logo-script{font-family:'Dancing Script',cursive;font-size:38px;font-weight:700;color:#fff;line-height:1}
+.logo-sub{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.85);padding-left:3px;margin-top:-1px}
+.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902}
+.nav-ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.nav-desktop{display:none}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:950;opacity:0;pointer-events:none;transition:opacity .35s}
+#overlay.on{opacity:1;pointer-events:all}
+#menu{position:fixed;top:0;right:0;bottom:0;width:78%;max-width:300px;background:#1a4fd6;z-index:960;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 32px 40px;overflow-y:auto}
+#menu.on{transform:translateX(0)}
+#menu-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:#e53935;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;transition:background .25s}
+#menu-close:hover{background:#c62828}
+#menu nav{display:flex;flex-direction:column;gap:2px;margin-bottom:28px}
+#menu nav a{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700;color:#fff;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.15);transition:color .2s}
+#menu nav a:hover,#menu nav a.cur{color:rgba(255,255,255,.65);text-decoration:underline}
+.msep{height:1px;background:rgba(255,255,255,.2);margin:8px 0 16px}
+#menu .msoc{display:flex;flex-direction:column;gap:0}
+#menu .msoc a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.72);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s}
+#menu .msoc a:hover{color:#fff}
+@media(min-width:900px){#nav{padding:0 64px}.nav-ham{display:none}.nav-desktop{display:flex;gap:28px;align-items:center}.nav-desktop a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;position:relative;padding-bottom:3px}.nav-desktop a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#fff;transition:width .3s}.nav-desktop a:hover::after,.nav-desktop a.cur::after{width:100%}}
+.qbar{background:#1040b8;padding:28px 20px}
+.qbar blockquote{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,20px);font-style:italic;font-weight:600;line-height:1.55;color:#fff;max-width:900px}
+.qbar cite{display:block;margin-top:10px;font-style:normal;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.6)}
+@media(min-width:900px){.qbar{padding:44px 64px}}
+.ph{background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#aaa;width:100%;text-align:center;padding:14px}
+.lbl-b{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
+.lbl-d{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:#999;margin-bottom:10px}
+.btn-w{display:inline-block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#111;border:2px solid #111;padding:11px 24px;transition:all .3s}
+.btn-w:hover{background:#111;color:#fff}
+.btn-b{display:inline-block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;border:2px solid rgba(255,255,255,.6);padding:11px 24px;transition:all .3s}
+.btn-b:hover{background:#fff;color:#1a4fd6;border-color:#fff}
+footer{background:#0d3baa;padding:52px 20px 28px}
+@media(min-width:900px){footer{padding:64px 64px 36px}}
+.ft-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
+@media(min-width:600px){.ft-in{grid-template-columns:1.4fr 1fr 1fr;gap:48px}}
+.ft-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px}
+.ft-col a,.ft-col p{font-size:13px;color:rgba(255,255,255,.72);line-height:2.1;display:block;transition:color .3s}
+.ft-col a:hover{color:#fff}
+.ft-soc{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.ft-soc a{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)!important;border:1px solid rgba(255,255,255,.25);padding:5px 11px;line-height:1!important;transition:all .3s}
+.ft-soc a:hover{background:rgba(255,255,255,.15);color:#fff!important}
+.ft-bot{max-width:1080px;margin:20px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-bot p{font-size:11px;color:rgba(255,255,255,.35)}
+
+.pg-hdr{background:#1a4fd6;padding:56px 20px 44px}
+@media(min-width:900px){.pg-hdr{padding:72px 64px 56px}}
+.pg-hdr h1{font-family:'Montserrat',sans-serif;font-size:clamp(44px,12vw,90px);font-weight:900;text-transform:uppercase;color:#fff;line-height:.9;margin-bottom:16px}
+.pg-hdr p{font-size:clamp(14px,3.5vw,16px);color:rgba(255,255,255,.85);max-width:560px;line-height:1.75}
+.cb{background:#fff;padding:44px 20px 64px}
+@media(min-width:900px){.cb{padding:56px 64px 80px}}
+.tnav{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:2px solid #ddd;margin-bottom:36px}
+.tnav::-webkit-scrollbar{display:none}
+.tbtn{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#aaa;background:none;border:none;cursor:pointer;padding:13px 20px;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:all .3s}
+.tbtn.on,.tbtn:hover{color:#111;border-bottom-color:#1a4fd6}
+.tp{display:none}.tp.on{display:block}
+@media(min-width:900px){.tp.on{display:grid;grid-template-columns:1fr 260px;gap:60px}}
+.fr{display:grid;grid-template-columns:1fr}
+@media(min-width:580px){.fr{grid-template-columns:1fr 1fr;gap:16px}}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#aaa;margin-bottom:6px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;background:#f8f8f8;border:1px solid #ddd;color:#111;font-family:'Open Sans',sans-serif;font-size:14px;outline:none;transition:border-color .3s;border-radius:0;appearance:none;-webkit-appearance:none}
+.fg select option{background:#fff}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:#1a4fd6;background:#fff}
+.fg textarea{resize:vertical;min-height:110px}
+.fchk{display:flex;gap:12px;align-items:flex-start;margin-bottom:20px}
+.fchk input[type=checkbox]{width:15px;height:15px;margin-top:2px;flex-shrink:0;accent-color:#1a4fd6}
+.fchk label{font-size:12px;color:#666;line-height:1.6}
+.sb{padding-top:4px;margin-top:28px}
+@media(min-width:900px){.sb{margin-top:0}}
+.sb-blk{margin-bottom:28px}
+.sb-h{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#aaa;margin-bottom:10px}
+.sb-blk a,.sb-blk p{font-size:13px;color:#555;line-height:2;display:block;transition:color .3s}
+.sb-blk a:hover{color:#1a4fd6}
+.sb-soc{display:flex;flex-wrap:wrap;gap:7px}
+.sb-soc a{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#777!important;border:1px solid #ddd;padding:5px 11px;line-height:1!important;transition:all .3s}
+.sb-soc a:hover{background:#1a4fd6;border-color:#1a4fd6;color:#fff!important}
+</style>
+</head>
+<body style="padding-top:72px">
+
+<div id="overlay"></div>
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><span class="logo-script">Pastor Zac</span><span class="logo-sub">Akinadewo</span></a>
+  <ul class="nav-desktop"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="music.html">Music</a></li><li><a href="ministry.html">Ministry</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html"class="cur">Contact</a></li></ul>
+  <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
+</nav>
+<div id="menu">
+  <button id="menu-close">&#x2715;</button>
+  <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html"class="cur">Contact</a></nav>
+  <div class="msep"></div><div class="msep"></div>
+  <div class="msoc"><a href="#">YouTube</a><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Twitter / X</a></div>
+</div>
+
+<header class="pg-hdr">
+  <p class="lbl-b">Reach Out</p>
+  <h1>Get in Touch</h1>
+  <p>We'd love to hear from you. For speaking invitations, testimonies, or media requests, kindly fill out any of the forms below and we'll be in touch.</p>
+</header>
+<section class="cb">
+  <div style="max-width:1080px;margin:0 auto">
+    <div class="tnav">
+      <button class="tbtn on" data-t="f1">Ministrations</button>
+      <button class="tbtn" data-t="f2">Testimonies</button>
+      <button class="tbtn" data-t="f3">Media Requests</button>
+    </div>
+    <div class="tp on" id="f1">
+      <div>
+        <div class="fr"><div class="fg"><label>Event Host / Church Name</label><input type="text" placeholder="Name of your organisation"/></div><div class="fg"><label>Your Position in the Organisation</label><input type="text" placeholder="Your role"/></div></div>
+        <div class="fg"><label>Host Pastor (First &amp; Last Name)</label><input type="text" placeholder="Pastor's full name"/></div>
+        <div class="fg"><label>Event Name and the Vision / Theme</label><input type="text" placeholder="Name and theme of your event"/></div>
+        <div class="fg"><label>Is there a scripture the Lord has given for this event?</label><input type="text" placeholder="Reference or quote the scripture"/></div>
+        <div class="fr"><div class="fg"><label>Your Email</label><input type="email" placeholder="Your email address"/></div><div class="fg"><label>Venue Address</label><input type="text" placeholder="Full address or Virtual"/></div></div>
+        <div class="fr"><div class="fg"><label>Phone Number</label><input type="tel" placeholder="Include country code"/></div><div class="fg"><label>Other Ministers</label><input type="text" placeholder="Are there other ministers?"/></div></div>
+        <div class="fr"><div class="fg"><label>Start Date</label><input type="date"/></div><div class="fg"><label>End Date</label><input type="date"/></div></div>
+        <div class="fg"><label>Description of Event</label><textarea placeholder="Describe the event in detail..."></textarea></div>
+        <div class="fg"><label>Format</label><select><option value="" disabled selected>Select format</option><option>In-person</option><option>Virtual</option><option>Other</option></select></div>
+        <div class="fg"><label>Expectations for Pastor Zac's Participation</label><textarea placeholder="Include details about sessions, duration, and expectations..."></textarea></div>
+        <div class="fg"><label>Will the event be private or public?</label><select><option value="" disabled selected>Select</option><option>Private</option><option>Public</option></select></div>
+        <div class="fg"><label>Any other details we should know?</label><textarea placeholder="Additional information..." rows="4"></textarea></div>
+        <div class="fchk"><input type="checkbox" id="ack"/><label for="ack">I understand that this form is only a request and DOES NOT CONFIRM Pastor Zac's participation. After review, a member of the team will contact you.</label></div>
+        <button type="button" class="btn-w">Submit</button>
+      </div>
+      <div class="sb">
+        <div class="sb-blk"><p class="sb-h">Contact</p><a href="mailto:info@pastorzacakinadewo.com">info@pastorzacakinadewo.com</a></div>
+        <div class="sb-blk"><p class="sb-h">Connect</p><div class="sb-soc"><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Instagram</a></div></div>
+        <div class="sb-blk"><p class="sb-h">Stream</p><div class="sb-soc"><a href="#">YouTube</a><a href="#">Spotify</a><a href="#">Apple Music</a></div></div>
+        <div class="sb-blk"><p class="sb-h">Note</p><p>Submitting a request does not guarantee a response or confirm participation.</p></div>
+      </div>
+    </div>
+    <div class="tp" id="f2">
+      <div>
+        <div class="fr"><div class="fg"><label>Full Name</label><input type="text" placeholder="Your full name"/></div><div class="fg"><label>Email</label><input type="email" placeholder="Your email address"/></div></div>
+        <div class="fr"><div class="fg"><label>Location</label><input type="text" placeholder="City, Country"/></div><div class="fg"><label>Subject</label><input type="text" placeholder="Brief subject line"/></div></div>
+        <div class="fg"><label>Testimony</label><textarea rows="10" placeholder="Share how God has worked in your life through this ministry..."></textarea></div>
+        <button type="button" class="btn-w">Submit</button>
+      </div>
+      <div class="sb">
+        <div class="sb-blk"><p class="sb-h">Contact</p><a href="mailto:info@pastorzacakinadewo.com">info@pastorzacakinadewo.com</a></div>
+        <div class="sb-blk"><p class="sb-h">Connect</p><div class="sb-soc"><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Instagram</a></div></div>
+      </div>
+    </div>
+    <div class="tp" id="f3">
+      <div>
+        <div class="fg"><label>Type of Organisation</label><select><option value="" disabled selected>Select type</option><option>Newspaper</option><option>Independent Blog</option><option>Radio Station</option><option>TV Station</option><option>Magazine</option><option>Podcast</option><option>Other</option></select></div>
+        <div class="fr"><div class="fg"><label>Name of Organisation</label><input type="text" placeholder="Organisation name"/></div><div class="fg"><label>Country</label><input type="text" placeholder="Your country"/></div></div>
+        <div class="fr"><div class="fg"><label>Contact Person</label><input type="text" placeholder="Your name"/></div><div class="fg"><label>Email Address</label><input type="email" placeholder="Your email"/></div></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="Include country code"/></div>
+        <div class="fg"><label>Media Request Details</label><textarea rows="7" placeholder="Describe your request, audience, and intended format..."></textarea></div>
+        <button type="button" class="btn-w">Submit</button>
+      </div>
+      <div class="sb">
+        <div class="sb-blk"><p class="sb-h">Media Contact</p><a href="mailto:media@pastorzacakinadewo.com">media@pastorzacakinadewo.com</a></div>
+        <div class="sb-blk"><p class="sb-h">Connect</p><div class="sb-soc"><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Instagram</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-col"><span class="logo-script" style="font-size:28px">Pastor Zac</span><span class="logo-sub" style="display:block;margin-top:2px">Akinadewo</span></div>
+    <div class="ft-col"><p class="ft-lbl">Contact</p><a href="mailto:info@pastorzacakinadewo.com">info@pastorzacakinadewo.com</a></div>
+    <div class="ft-col"><p class="ft-lbl">Connect</p><div class="ft-soc"><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Instagram</a></div><p class="ft-lbl" style="margin-top:14px">Stream</p><div class="ft-soc"><a href="#">YouTube</a><a href="#">Spotify</a><a href="#">Apple Music</a></div></div>
+  </div>
+  <div class="ft-bot"><p>&copy; 2025 Pastor Zac Akinadewo. All rights reserved.</p><p>pastorzacakinadewo.com</p></div>
+</footer>
+<script>
+(function(){
+  var h=document.getElementById('ham'),m=document.getElementById('menu'),
+      o=document.getElementById('overlay'),c=document.getElementById('menu-close');
+  function op(){m.classList.add('on');o.classList.add('on');document.body.style.overflow='hidden'}
+  function cl(){m.classList.remove('on');o.classList.remove('on');document.body.style.overflow=''}
+  h.addEventListener('click',op);c.addEventListener('click',cl);o.addEventListener('click',cl);
+  m.querySelectorAll('nav a').forEach(function(l){l.addEventListener('click',cl)});
+})();
+</script>
+<script>
+document.querySelectorAll('.tbtn').forEach(function(btn){btn.addEventListener('click',function(){document.querySelectorAll('.tbtn').forEach(function(b){b.classList.remove('on')});document.querySelectorAll('.tp').forEach(function(p){p.classList.remove('on')});btn.classList.add('on');document.getElementById(btn.dataset.t).classList.add('on')})});
+</script>
+</body>
+</html>
