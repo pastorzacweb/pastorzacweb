@@ -24,17 +24,72 @@ ul{list-style:none}
 /* ===== NAV ===== */
 #nav{
   position:fixed;top:0;left:0;right:0;z-index:900;
-  height:72px;display:flex;align-items:center;
-  justify-content:space-between;padding:0 20px;
+  height:80px;
+  display:flex;align-items:center;
+  padding:0 20px;
   background:#1a4fd6;
 }
-.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
-.logo-script{font-family:'Dancing Script',cursive;font-size:38px;font-weight:700;color:#fff;line-height:1}
-.logo-sub{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.85);padding-left:3px;margin-top:-1px}
-.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902}
+.nav-logo{
+  display:flex;flex-direction:column;
+  line-height:1;text-decoration:none;
+  flex-shrink:0;
+}
+.logo-script{
+  font-family:'Dancing Script',cursive;
+  font-size:40px;font-weight:700;color:#fff;line-height:1;
+}
+.logo-sub{
+  font-family:'Montserrat',sans-serif;
+  font-size:8px;font-weight:700;
+  letter-spacing:.45em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);
+  padding-left:3px;margin-top:-2px;
+}
+.nav-ham{
+  display:flex;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;
+  padding:4px;z-index:902;margin-left:auto;
+}
 .nav-ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.nav-desktop{display:none}
-
+.nav-left{display:none}
+.nav-right{display:none}
+@media(min-width:960px){
+  #nav{padding:0 40px;justify-content:space-between}
+  .nav-ham{display:none}
+  .nav-left{
+    display:flex;gap:24px;align-items:center;flex:1;
+  }
+  .nav-left a{
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:#fff;position:relative;padding-bottom:3px;
+    white-space:nowrap;transition:opacity .3s;
+  }
+  .nav-left a::after{
+    content:'';position:absolute;bottom:0;left:0;
+    width:0;height:2px;background:#fff;transition:width .3s;
+  }
+  .nav-left a:hover::after,.nav-left a.cur::after{width:100%}
+  .nav-logo{
+    position:absolute;left:50%;transform:translateX(-50%);
+    text-align:center;
+  }
+  .logo-script{font-size:46px}
+  .logo-sub{font-size:8.5px;padding-left:4px}
+  .nav-right{
+    display:flex;gap:18px;align-items:center;
+    flex:1;justify-content:flex-end;
+  }
+  .nav-right a{
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:rgba(255,255,255,.82);
+    white-space:nowrap;transition:color .25s;
+  }
+  .nav-right a:hover{color:#fff}
+}
 /* ===== OVERLAY ===== */
 #overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:950;opacity:0;pointer-events:none;transition:opacity .35s}
 #overlay.on{opacity:1;pointer-events:all}
@@ -211,42 +266,25 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 <body>
 
 <div id="overlay"></div>
-
 <nav id="nav">
-  <a href="index.html" class="nav-logo">
-    <span class="logo-script">Pastor Zac</span>
-    <span class="logo-sub">Akinadewo</span>
-  </a>
-  <ul class="nav-desktop">
-    <li><a href="index.html" class="cur">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="music.html">Music</a></li>
-    <li><a href="ministry.html">Ministry</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="nav-ham" id="ham" aria-label="Open menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-left"><a href="index.html"class="cur" >Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+  <a href="index.html" class="nav-logo"><span class="logo-script">Pastor Zac</span><span class="logo-sub">Akinadewo</span></a>
+  <div class="nav-right">
+    <a href="#" target="_blank">Apple</a>
+    <a href="#" target="_blank">Spotify</a>
+    <a href="#" target="_blank">Deezer</a>
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Twitter</a>
+  </div>
+  <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
 </nav>
-
 <div id="menu">
-  <button id="menu-close" aria-label="Close">&#x2715;</button>
-  <nav>
-    <a href="index.html" class="cur">Home</a>
-    <a href="about.html">About</a>
-    <a href="music.html">Music</a>
-    <a href="ministry.html">Ministry</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="msep"></div>
-  <div class="msep"></div>
+  <button id="menu-close">&#x2715;</button>
+  <nav><a href="index.html"class="cur" >Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <div class="msep"></div><div class="msep"></div>
   <div class="msoc">
-    <a href="#">YouTube</a>
-    <a href="#">Facebook</a>
-    <a href="#">Instagram</a>
-    <a href="#">Twitter / X</a>
+    <a href="#">Apple Music</a><a href="#">Spotify</a><a href="#">Deezer</a>
+    <a href="#">Instagram</a><a href="#">Twitter / X</a>
   </div>
 </div>
 
