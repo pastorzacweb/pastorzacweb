@@ -83,35 +83,49 @@ ul{list-style:none}
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:72px 20px 72px;
 }
-/* Real photo fills right half, fades left into blue */
+/* Real photo — right side, clearly visible */
 .hero-img{
   position:absolute;
   right:0;top:0;bottom:0;
-  width:65%;
+  width:62%;
   background:url('pastorzac.jpeg') center top/cover no-repeat;
   z-index:0;
 }
+/* Only a thin left-edge fade to blend into blue nav */
 .hero-img::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to right, #1a4fd6 0%, #1a4fd6 15%, rgba(26,79,214,.7) 45%, rgba(26,79,214,.15) 100%);
+  background:linear-gradient(to right,
+    #1a4fd6 0%,
+    #1a4fd6 5%,
+    rgba(26,79,214,.35) 28%,
+    rgba(26,79,214,.05) 55%,
+    transparent 100%
+  );
 }
-/* Bottom fade so text stays readable */
+/* Very subtle bottom fade — just enough for legibility */
 .hero-img::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(26,79,214,.85) 0%, transparent 50%);
+  background:linear-gradient(to top, rgba(10,30,120,.5) 0%, transparent 35%);
 }
 .hero-wm{position:absolute;right:-5px;bottom:-20px;font-family:'Dancing Script',cursive;font-size:58vw;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;z-index:1;user-select:none}
-.hero-c{position:relative;z-index:2;max-width:580px}
-.hero-c h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,11.5vw,86px);font-weight:900;text-transform:uppercase;line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
-.hero-c p{font-size:clamp(14px,3.8vw,17px);line-height:1.75;color:rgba(255,255,255,.9);max-width:440px}
+.hero-c{position:relative;z-index:2;max-width:55%}
+.hero-c h1{font-family:'Montserrat',sans-serif;font-size:clamp(36px,9vw,82px);font-weight:900;text-transform:uppercase;line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,30,.4)}
+.hero-c p{font-size:clamp(13px,3.2vw,16px);line-height:1.75;color:rgba(255,255,255,.92);max-width:380px;text-shadow:0 1px 6px rgba(0,0,30,.5)}
 .hero-arr{position:absolute;bottom:32px;left:20px;z-index:3}
 .hero-arr svg{width:26px;height:26px;stroke:rgba(255,255,255,.55);fill:none;stroke-width:2;animation:bob 2s ease infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-@media(min-width:900px){.hero{padding:72px 64px 100px}.hero-arr{left:64px}}
-/* On mobile, photo takes full background at lower opacity */
+@media(min-width:900px){.hero{padding:72px 64px 100px}.hero-arr{left:64px}.hero-c{max-width:46%}}
+/* Mobile: photo as full bg, light overlay so face shows */
 @media(max-width:599px){
-  .hero-img{width:100%;opacity:.45}
-  .hero-img::before{background:linear-gradient(to right,#1a4fd6 0%,rgba(26,79,214,.6) 100%)}
+  .hero-img{width:100%}
+  .hero-img::before{
+    background:linear-gradient(135deg,
+      rgba(26,79,214,.75) 0%,
+      rgba(26,79,214,.25) 60%,
+      rgba(26,79,214,.1) 100%
+    );
+  }
+  .hero-c{max-width:100%}
 }
 
 /* ===== BLUE QUOTE BAR ===== */
