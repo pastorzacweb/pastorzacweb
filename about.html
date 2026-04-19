@@ -5,7 +5,7 @@
 <title>About – Pastor Zac Akinadewo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Style+Script&family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -14,7 +14,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-st
 /* NAV */
 #nav{position:fixed;top:0;left:0;right:0;z-index:900;height:80px;display:flex;align-items:center;padding:0 20px;background:#1a4fd6}
 .nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;flex-shrink:0}
-.logo-script{font-family:'Dancing Script',cursive;font-size:40px;font-weight:700;color:#fff;line-height:1}
+.logo-script{font-family:'Pinyon Script',cursive;font-size:40px;font-weight:700;color:#fff;line-height:1}
 .logo-sub{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:rgba(255,255,255,.82);padding-left:3px;margin-top:-2px}
 .nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902;margin-left:auto}
 .nav-ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
@@ -76,7 +76,7 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 
 .pg-hdr{background:#1a4fd6;padding:48px 20px 0}
 @media(min-width:960px){.pg-hdr{padding:64px 64px 0}.pg-hdr-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:flex-end}}
-.pg-hdr h1{font-family:'Dancing Script',cursive;font-size:clamp(52px,14vw,100px);font-weight:700;color:#fff;line-height:1;margin-bottom:20px}
+.pg-hdr h1{font-family:'Pinyon Script',cursive;font-size:clamp(52px,14vw,100px);font-weight:700;color:#fff;line-height:1;margin-bottom:20px}
 .pg-hdr p{font-size:clamp(14px,3.5vw,16px);line-height:1.9;color:rgba(255,255,255,.88);max-width:500px;margin-bottom:36px}
 .pg-hdr-img img{width:100%;display:block;object-fit:cover;object-position:top;aspect-ratio:3/4;margin-top:28px}
 @media(min-width:960px){.pg-hdr-img img{margin-top:0}}
@@ -97,7 +97,22 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 <div id="overlay"></div>
 <nav id="nav">
   <div class="nav-left"><a href="index.html">Home</a><a href="about.html"class="cur">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
-  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Pastor Zac Akinadewo"/></a>
+  <a href="index.html" class="nav-logo" aria-label="Pastor Zac Akinadewo">
+    <svg class="logo-svg" viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="2" y="46"
+        font-family="'Style Script', cursive"
+        font-size="50"
+        fill="white"
+        font-weight="400">Pastor Zac</text>
+      <text x="2" y="68"
+        font-family="'Montserrat', sans-serif"
+        font-size="11.5"
+        font-weight="300"
+        fill="white"
+        textLength="256"
+        lengthAdjust="spacing">AKINADEWO</text>
+    </svg>
+  </a>
   <div class="nav-right">
     <a href="#">Apple</a><a href="#">Spotify</a><a href="#">Deezer</a><a href="#">Instagram</a><a href="#">Twitter</a>
   </div>
@@ -137,7 +152,10 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 </div></section>
 <footer>
   <div class="ft-in">
-    <div class="ft-col"><img src="logo.png" alt="Pastor Zac Akinadewo" style="height:54px;width:auto;display:block"/></div>
+    <div class="ft-col"><svg viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" style="height:54px;width:auto;display:block">
+        <text x="2" y="46" font-family="'Style Script',cursive" font-size="50" fill="white" font-weight="400">Pastor Zac</text>
+        <text x="2" y="68" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="300" fill="white" textLength="256" lengthAdjust="spacing">AKINADEWO</text>
+      </svg></div>
     <div class="ft-col"><p class="ft-lbl">Contact</p><a href="mailto:info@pastorzacakinadewo.com">info@pastorzacakinadewo.com</a></div>
     <div class="ft-col"><p class="ft-lbl">Connect</p><div class="ft-soc"><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Instagram</a></div><p class="ft-lbl" style="margin-top:14px">Stream</p><div class="ft-soc"><a href="#">YouTube</a><a href="#">Spotify</a><a href="#">Apple Music</a></div></div>
   </div>

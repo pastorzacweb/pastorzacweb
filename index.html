@@ -7,7 +7,7 @@
 <meta name="description" content="Pastor Zac Akinadewo – Preacher, Teacher, Kingdom Builder."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Style+Script&family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 /* ===== RESET ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -30,12 +30,13 @@ ul{list-style:none}
   background:#1a4fd6;
 }
 .nav-logo{
-  display:flex;align-items:center;
+  display:inline-flex;
   line-height:1;text-decoration:none;
   flex-shrink:0;
 }
-.nav-logo img{
-  height:54px;width:auto;
+.logo-svg{
+  height:52px;
+  width:auto;
   display:block;
 }
 .nav-ham{
@@ -66,9 +67,8 @@ ul{list-style:none}
   .nav-left a:hover::after,.nav-left a.cur::after{width:100%}
   .nav-logo{
     position:absolute;left:50%;transform:translateX(-50%);
-    text-align:center;align-items:center;
   }
-  .nav-logo img{height:68px;width:auto;}
+  .logo-svg{height:62px}
   .nav-right{
     display:flex;gap:18px;align-items:center;
     flex:1;justify-content:flex-end;
@@ -154,7 +154,7 @@ ul{list-style:none}
   content:'';position:absolute;inset:0;
   background:linear-gradient(to top, rgba(10,30,120,.5) 0%, transparent 35%);
 }
-.hero-wm{position:absolute;right:-5px;bottom:-20px;font-family:'Dancing Script',cursive;font-size:58vw;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;z-index:1;user-select:none}
+.hero-wm{position:absolute;right:-5px;bottom:-20px;font-family:'Pinyon Script',cursive;font-size:58vw;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;z-index:1;user-select:none}
 .hero-c{position:relative;z-index:2;max-width:55%}
 .hero-c h1{font-family:'Montserrat',sans-serif;font-size:clamp(36px,9vw,82px);font-weight:900;text-transform:uppercase;line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,30,.4)}
 .hero-c p{font-size:clamp(13px,3.2vw,16px);line-height:1.75;color:rgba(255,255,255,.92);max-width:380px;text-shadow:0 1px 6px rgba(0,0,30,.5)}
@@ -260,7 +260,22 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 <div id="overlay"></div>
 <nav id="nav">
   <div class="nav-left"><a href="index.html"class="cur" >Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
-  <a href="index.html" class="nav-logo"><img src="logo.png" alt="Pastor Zac Akinadewo"/></a>
+  <a href="index.html" class="nav-logo" aria-label="Pastor Zac Akinadewo">
+    <svg class="logo-svg" viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="2" y="46"
+        font-family="'Style Script', cursive"
+        font-size="50"
+        fill="white"
+        font-weight="400">Pastor Zac</text>
+      <text x="2" y="68"
+        font-family="'Montserrat', sans-serif"
+        font-size="11.5"
+        font-weight="300"
+        fill="white"
+        textLength="256"
+        lengthAdjust="spacing">AKINADEWO</text>
+    </svg>
+  </a>
   <div class="nav-right">
     <a href="#" target="_blank">Apple</a>
     <a href="#" target="_blank">Spotify</a>
@@ -380,7 +395,10 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 <footer>
   <div class="ft-in">
     <div class="ft-col">
-      <img src="logo.png" alt="Pastor Zac Akinadewo" style="height:54px;width:auto;display:block"/>
+      <svg viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" style="height:54px;width:auto;display:block">
+        <text x="2" y="46" font-family="'Style Script',cursive" font-size="50" fill="white" font-weight="400">Pastor Zac</text>
+        <text x="2" y="68" font-family="'Montserrat',sans-serif" font-size="11.5" font-weight="300" fill="white" textLength="256" lengthAdjust="spacing">AKINADEWO</text>
+      </svg>
     </div>
     <div class="ft-col">
       <p class="ft-lbl">Contact</p>
