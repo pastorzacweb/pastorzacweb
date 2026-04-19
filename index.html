@@ -83,15 +83,36 @@ ul{list-style:none}
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:72px 20px 72px;
 }
-.hero-ph{position:absolute;inset:0;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)}
-.hero-wm{position:absolute;right:-5px;bottom:-20px;font-family:'Dancing Script',cursive;font-size:58vw;font-weight:700;color:rgba(255,255,255,.05);line-height:1;pointer-events:none;z-index:1;user-select:none}
-.hero-c{position:relative;z-index:2;max-width:700px}
+/* Real photo fills right half, fades left into blue */
+.hero-img{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:65%;
+  background:url('pastorzac.jpeg') center top/cover no-repeat;
+  z-index:0;
+}
+.hero-img::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right, #1a4fd6 0%, #1a4fd6 15%, rgba(26,79,214,.7) 45%, rgba(26,79,214,.15) 100%);
+}
+/* Bottom fade so text stays readable */
+.hero-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(26,79,214,.85) 0%, transparent 50%);
+}
+.hero-wm{position:absolute;right:-5px;bottom:-20px;font-family:'Dancing Script',cursive;font-size:58vw;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;z-index:1;user-select:none}
+.hero-c{position:relative;z-index:2;max-width:580px}
 .hero-c h1{font-family:'Montserrat',sans-serif;font-size:clamp(40px,11.5vw,86px);font-weight:900;text-transform:uppercase;line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.01em}
-.hero-c p{font-size:clamp(14px,3.8vw,17px);line-height:1.75;color:rgba(255,255,255,.9);max-width:460px}
+.hero-c p{font-size:clamp(14px,3.8vw,17px);line-height:1.75;color:rgba(255,255,255,.9);max-width:440px}
 .hero-arr{position:absolute;bottom:32px;left:20px;z-index:3}
 .hero-arr svg{width:26px;height:26px;stroke:rgba(255,255,255,.55);fill:none;stroke-width:2;animation:bob 2s ease infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 @media(min-width:900px){.hero{padding:72px 64px 100px}.hero-arr{left:64px}}
+/* On mobile, photo takes full background at lower opacity */
+@media(max-width:599px){
+  .hero-img{width:100%;opacity:.45}
+  .hero-img::before{background:linear-gradient(to right,#1a4fd6 0%,rgba(26,79,214,.6) 100%)}
+}
 
 /* ===== BLUE QUOTE BAR ===== */
 .qbar{background:#1040b8;padding:28px 20px}
@@ -215,9 +236,9 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   </div>
 </div>
 
-<!-- HERO — BLUE -->
+<!-- HERO — BLUE with real photo -->
 <section class="hero">
-  <div class="hero-ph">[ Hero Background Photo — Pastor Zac Preaching ]</div>
+  <div class="hero-img"></div>
   <div class="hero-wm">Z</div>
   <div class="hero-c">
     <h1>Declaring<br>the Word<br>of God</h1>
@@ -246,7 +267,7 @@ footer{background:#0d3baa;padding:52px 20px 28px}
       <a href="about.html" class="btn-w">More About Pastor Zac</a>
     </div>
     <div class="about-img">
-      <div class="ph" style="aspect-ratio:3/4;min-height:280px">[ Pastor Zac Photo ]</div>
+      <img src="pastorzac.jpeg" alt="Pastor Zac Akinadewo preaching" style="width:100%;display:block;object-fit:cover;aspect-ratio:3/4"/>
     </div>
   </div>
 </section>

@@ -60,7 +60,8 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 @media(min-width:900px){.pg-hdr{padding:72px 64px 0}.pg-hdr-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:flex-end}}
 .pg-hdr h1{font-family:'Dancing Script',cursive;font-size:clamp(52px,14vw,100px);font-weight:700;color:#fff;line-height:1;margin-bottom:24px}
 .pg-hdr p{font-size:clamp(14px,3.5vw,16px);line-height:1.9;color:rgba(255,255,255,.88);max-width:520px;margin-bottom:36px}
-.pg-hdr-img .ph{aspect-ratio:3/4;min-height:280px}
+.pg-hdr-img{overflow:hidden}
+.pg-hdr-img img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4;object-position:top}
 .bio{background:#fff;padding:56px 20px}
 @media(min-width:900px){.bio{padding:80px 64px}.bio-in{max-width:1080px;margin:0 auto}}
 .bio p{font-size:15px;line-height:1.95;color:#444;margin-bottom:22px;max-width:720px}
@@ -96,7 +97,9 @@ footer{background:#0d3baa;padding:52px 20px 28px}
       <h1>About<br>Pastor Zac</h1>
       <p>Pastor Zac Akinadewo was born with a heart for the Word of God. A divine calling to preach the Gospel was made clear in his youth, and he surrendered fully to full-time ministry.</p>
     </div>
-    <div class="pg-hdr-img"><div class="ph" style="aspect-ratio:3/4;min-height:280px">[ Pastor Zac Photo ]</div></div>
+    <div class="pg-hdr-img">
+      <img src="pastorzac.jpeg" alt="Pastor Zac Akinadewo" />
+    </div>
   </div>
 </section>
 <section class="bio">
