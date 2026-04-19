@@ -9,17 +9,34 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Open Sans',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+body{font-family:'Open Sans',sans-serif;background:#fff;color:#111;overflow-x:hidden;padding-top:80px}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-style:none}
-#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:#1a4fd6}
-.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
-.logo-script{font-family:'Dancing Script',cursive;font-size:38px;font-weight:700;color:#fff;line-height:1}
-.logo-sub{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.85);padding-left:3px;margin-top:-1px}
-.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902}
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:80px;display:flex;align-items:center;padding:0 20px;background:#1a4fd6}
+.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;flex-shrink:0}
+.logo-script{font-family:'Dancing Script',cursive;font-size:40px;font-weight:700;color:#fff;line-height:1}
+.logo-sub{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:rgba(255,255,255,.82);padding-left:3px;margin-top:-2px}
+.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902;margin-left:auto}
 .nav-ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.nav-desktop{display:none}
+.nav-left{display:none}
+.nav-right{display:none}
+@media(min-width:960px){
+  #nav{padding:0 40px;justify-content:space-between}
+  .nav-ham{display:none}
+  .nav-left{display:flex;gap:22px;align-items:center;flex:1}
+  .nav-left a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;position:relative;padding-bottom:3px;white-space:nowrap}
+  .nav-left a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#fff;transition:width .3s}
+  .nav-left a:hover::after,.nav-left a.cur::after{width:100%}
+  .nav-logo{position:absolute;left:50%;transform:translateX(-50%);text-align:center}
+  .logo-script{font-size:46px}
+  .nav-right{display:flex;gap:16px;align-items:center;flex:1;justify-content:flex-end}
+  .nav-right a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap;transition:color .25s}
+  .nav-right a:hover{color:#fff}
+}
+/* OVERLAY */
 #overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:950;opacity:0;pointer-events:none;transition:opacity .35s}
 #overlay.on{opacity:1;pointer-events:all}
+/* MOBILE MENU */
 #menu{position:fixed;top:0;right:0;bottom:0;width:78%;max-width:300px;background:#1a4fd6;z-index:960;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 32px 40px;overflow-y:auto}
 #menu.on{transform:translateX(0)}
 #menu-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:#e53935;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;transition:background .25s}
@@ -31,11 +48,11 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-st
 #menu .msoc{display:flex;flex-direction:column;gap:0}
 #menu .msoc a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.72);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s}
 #menu .msoc a:hover{color:#fff}
-@media(min-width:900px){#nav{padding:0 64px}.nav-ham{display:none}.nav-desktop{display:flex;gap:28px;align-items:center}.nav-desktop a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;position:relative;padding-bottom:3px}.nav-desktop a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#fff;transition:width .3s}.nav-desktop a:hover::after,.nav-desktop a.cur::after{width:100%}}
+/* SHARED UTILS */
 .qbar{background:#1040b8;padding:28px 20px}
 .qbar blockquote{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,20px);font-style:italic;font-weight:600;line-height:1.55;color:#fff;max-width:900px}
 .qbar cite{display:block;margin-top:10px;font-style:normal;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.6)}
-@media(min-width:900px){.qbar{padding:44px 64px}}
+@media(min-width:960px){.qbar{padding:44px 64px}}
 .ph{background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#aaa;width:100%;text-align:center;padding:14px}
 .lbl-b{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
 .lbl-d{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:#999;margin-bottom:10px}
@@ -43,8 +60,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-st
 .btn-w:hover{background:#111;color:#fff}
 .btn-b{display:inline-block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;border:2px solid rgba(255,255,255,.6);padding:11px 24px;transition:all .3s}
 .btn-b:hover{background:#fff;color:#1a4fd6;border-color:#fff}
+/* FOOTER */
 footer{background:#0d3baa;padding:52px 20px 28px}
-@media(min-width:900px){footer{padding:64px 64px 36px}}
+@media(min-width:960px){footer{padding:64px 64px 36px}}
 .ft-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
 @media(min-width:600px){.ft-in{grid-template-columns:1.4fr 1fr 1fr;gap:48px}}
 .ft-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px}
@@ -56,48 +74,40 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 .ft-bot{max-width:1080px;margin:20px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .ft-bot p{font-size:11px;color:rgba(255,255,255,.35)}
 
-.pg-hdr{background:#1a4fd6;padding:56px 20px 0}
-@media(min-width:900px){.pg-hdr{padding:72px 64px 0}.pg-hdr-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:60px;align-items:flex-end}}
-.pg-hdr h1{font-family:'Dancing Script',cursive;font-size:clamp(52px,14vw,100px);font-weight:700;color:#fff;line-height:1;margin-bottom:24px}
-.pg-hdr p{font-size:clamp(14px,3.5vw,16px);line-height:1.9;color:rgba(255,255,255,.88);max-width:520px;margin-bottom:36px}
-.pg-hdr-img{overflow:hidden}
-.pg-hdr-img img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4;object-position:top}
-.bio{background:#fff;padding:56px 20px}
-@media(min-width:900px){.bio{padding:80px 64px}.bio-in{max-width:1080px;margin:0 auto}}
+.pg-hdr{background:#1a4fd6;padding:48px 20px 0}
+@media(min-width:960px){.pg-hdr{padding:64px 64px 0}.pg-hdr-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:flex-end}}
+.pg-hdr h1{font-family:'Dancing Script',cursive;font-size:clamp(52px,14vw,100px);font-weight:700;color:#fff;line-height:1;margin-bottom:20px}
+.pg-hdr p{font-size:clamp(14px,3.5vw,16px);line-height:1.9;color:rgba(255,255,255,.88);max-width:500px;margin-bottom:36px}
+.pg-hdr-img img{width:100%;display:block;object-fit:cover;object-position:top;aspect-ratio:3/4;margin-top:28px}
+@media(min-width:960px){.pg-hdr-img img{margin-top:0}}
+.bio{background:#fff;padding:52px 20px}
+@media(min-width:960px){.bio{padding:72px 64px}.bio-in{max-width:1080px;margin:0 auto}}
 .bio p{font-size:15px;line-height:1.95;color:#444;margin-bottom:22px;max-width:720px}
-.scr{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,17px);font-style:italic;color:#222;line-height:1.65;border-left:4px solid #1a4fd6;padding:18px 0 18px 24px;margin:28px 0;background:#f8f9ff}
-.scr cite{display:block;font-style:normal;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1a4fd6;margin-top:10px}
+.scr{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,17px);font-style:italic;color:#222;line-height:1.65;border-left:4px solid #1a4fd6;padding:16px 0 16px 22px;margin:28px 0;background:#f0f4ff}
+.scr cite{display:block;font-style:normal;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1a4fd6;margin-top:8px}
 .stats{background:#1a4fd6;padding:40px 20px}
-@media(min-width:900px){.stats{padding:56px 64px}}
+@media(min-width:960px){.stats{padding:56px 64px}}
 .sg{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;text-align:center}
 @media(min-width:600px){.sg{grid-template-columns:repeat(4,1fr)}}
 .sn{font-family:'Montserrat',sans-serif;font-size:clamp(36px,8vw,60px);font-weight:900;color:#fff;line-height:1;margin-bottom:6px}
 .sl{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 </style>
 </head>
-<body style="padding-top:80px">
-
+<body>
 <div id="overlay"></div>
 <nav id="nav">
-  <div class="nav-left"><a href="index.html">Home</a><a href="about.html"class="cur" >About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+  <div class="nav-left"><a href="index.html">Home</a><a href="about.html"class="cur">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
   <a href="index.html" class="nav-logo"><span class="logo-script">Pastor Zac</span><span class="logo-sub">Akinadewo</span></a>
   <div class="nav-right">
-    <a href="#" target="_blank">Apple</a>
-    <a href="#" target="_blank">Spotify</a>
-    <a href="#" target="_blank">Deezer</a>
-    <a href="#" target="_blank">Instagram</a>
-    <a href="#" target="_blank">Twitter</a>
+    <a href="#">Apple</a><a href="#">Spotify</a><a href="#">Deezer</a><a href="#">Instagram</a><a href="#">Twitter</a>
   </div>
   <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
 </nav>
 <div id="menu">
   <button id="menu-close">&#x2715;</button>
-  <nav><a href="index.html">Home</a><a href="about.html"class="cur" >About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <nav><a href="index.html">Home</a><a href="about.html"class="cur">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
   <div class="msep"></div><div class="msep"></div>
-  <div class="msoc">
-    <a href="#">Apple Music</a><a href="#">Spotify</a><a href="#">Deezer</a>
-    <a href="#">Instagram</a><a href="#">Twitter / X</a>
-  </div>
+  <div class="msoc"><a href="#">Apple Music</a><a href="#">Spotify</a><a href="#">Deezer</a><a href="#">Instagram</a><a href="#">Twitter / X</a></div>
 </div>
 
 <section class="pg-hdr">
@@ -107,31 +117,24 @@ footer{background:#0d3baa;padding:52px 20px 28px}
       <h1>About<br>Pastor Zac</h1>
       <p>Pastor Zac Akinadewo was born with a heart for the Word of God. A divine calling to preach the Gospel was made clear in his youth, and he surrendered fully to full-time ministry.</p>
     </div>
-    <div class="pg-hdr-img">
-      <img src="pastorzac.jpeg" alt="Pastor Zac Akinadewo" />
-    </div>
+    <div class="pg-hdr-img"><img src="pastorzac.jpeg" alt="Pastor Zac Akinadewo"/></div>
   </div>
 </section>
-<section class="bio">
-  <div class="bio-in">
-    <p>Pastor Zac Akinadewo is a Nigerian preacher called to declare the Word of God with boldness and authority. Over more than two decades in ministry, he has preached at conferences, crusades, and assemblies across Nigeria and beyond — carrying a consistent message of the Kingdom of God, the necessity of revival, and the call to discipleship.</p>
-    <div class="scr">"But you have come to Mount Zion, to the city of the living God, the heavenly Jerusalem. You have come to thousands upon thousands of angels in joyful assembly, to the church of the firstborn, whose names are written in heaven."<cite>– Hebrews 12:22-23</cite></div>
-    <p>He is the founder of The Outpouring Ministry and convenes the annual Fire Conference — a gathering that has seen thousands encounter the living God. His ministry is marked by the demonstration of the Holy Spirit, healing of the sick, and the salvation of souls.</p>
-    <div class="scr">"After this I will return and will rebuild the tabernacle of David, which has fallen down; I will rebuild its ruins, and I will set it up; so that the rest of mankind may seek the LORD, even all the Gentiles who are called by My name."<cite>– Acts 15:16-17</cite></div>
-    <p>Pastor Zac is a devoted family man. He believes the Church is the hope of the world and that every believer is called to be a carrier of the Gospel.</p>
-    <div class="scr">"But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint."<cite>– Isaiah 40:31</cite></div>
-  </div>
-</section>
+<section class="bio"><div class="bio-in">
+  <p>Pastor Zac Akinadewo is a Nigerian preacher called to declare the Word of God with boldness and authority. Over more than two decades in ministry, he has preached at conferences, crusades, and assemblies across Nigeria and beyond — carrying a consistent message of the Kingdom of God, revival, and discipleship.</p>
+  <div class="scr">"But you have come to Mount Zion, to the city of the living God, the heavenly Jerusalem. You have come to thousands upon thousands of angels in joyful assembly, to the church of the firstborn, whose names are written in heaven."<cite>– Hebrews 12:22-23</cite></div>
+  <p>He is the founder of The Outpouring Ministry and convenes the annual Fire Conference — a gathering that has seen thousands encounter the living God. His ministry is marked by the demonstration of the Holy Spirit, healing of the sick, and the salvation of souls.</p>
+  <div class="scr">"After this I will return and will rebuild the tabernacle of David, which has fallen down; I will rebuild its ruins, and I will set it up; so that the rest of mankind may seek the LORD, even all the Gentiles who are called by My name."<cite>– Acts 15:16-17</cite></div>
+  <p>Pastor Zac is a devoted family man. He believes the Church is the hope of the world and that every believer is called to be a carrier of the Gospel. His ministry exists to fan that flame — in pulpits, through media, and in the lives of everyday people.</p>
+  <div class="scr">"But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint."<cite>– Isaiah 40:31</cite></div>
+</div></section>
 <div class="qbar"><blockquote>"For the kingdom of God is not in word, but in power."<cite>– 1 Corinthians 4:20</cite></blockquote></div>
-<section class="stats">
-  <div class="sg">
-    <div><div class="sn">20+</div><div class="sl">Years in Ministry</div></div>
-    <div><div class="sn">500+</div><div class="sl">Messages Preached</div></div>
-    <div><div class="sn">30+</div><div class="sl">Nations Reached</div></div>
-    <div><div class="sn">10+</div><div class="sl">Annual Gatherings</div></div>
-  </div>
-</section>
-
+<section class="stats"><div class="sg">
+  <div><div class="sn">20+</div><div class="sl">Years in Ministry</div></div>
+  <div><div class="sn">500+</div><div class="sl">Messages Preached</div></div>
+  <div><div class="sn">30+</div><div class="sl">Nations Reached</div></div>
+  <div><div class="sn">10+</div><div class="sl">Annual Gatherings</div></div>
+</div></section>
 <footer>
   <div class="ft-in">
     <div class="ft-col"><span class="logo-script" style="font-size:28px">Pastor Zac</span><span class="logo-sub" style="display:block;margin-top:2px">Akinadewo</span></div>
@@ -150,6 +153,5 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   m.querySelectorAll('nav a').forEach(function(l){l.addEventListener('click',cl)});
 })();
 </script>
-
 </body>
 </html>

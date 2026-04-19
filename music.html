@@ -9,17 +9,34 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Open Sans',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+body{font-family:'Open Sans',sans-serif;background:#fff;color:#111;overflow-x:hidden;padding-top:80px}
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-style:none}
-#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:#1a4fd6}
-.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
-.logo-script{font-family:'Dancing Script',cursive;font-size:38px;font-weight:700;color:#fff;line-height:1}
-.logo-sub{font-family:'Montserrat',sans-serif;font-size:8.5px;font-weight:700;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.85);padding-left:3px;margin-top:-1px}
-.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902}
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:80px;display:flex;align-items:center;padding:0 20px;background:#1a4fd6}
+.nav-logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;flex-shrink:0}
+.logo-script{font-family:'Dancing Script',cursive;font-size:40px;font-weight:700;color:#fff;line-height:1}
+.logo-sub{font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;letter-spacing:.45em;text-transform:uppercase;color:rgba(255,255,255,.82);padding-left:3px;margin-top:-2px}
+.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902;margin-left:auto}
 .nav-ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
-.nav-desktop{display:none}
+.nav-left{display:none}
+.nav-right{display:none}
+@media(min-width:960px){
+  #nav{padding:0 40px;justify-content:space-between}
+  .nav-ham{display:none}
+  .nav-left{display:flex;gap:22px;align-items:center;flex:1}
+  .nav-left a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;position:relative;padding-bottom:3px;white-space:nowrap}
+  .nav-left a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#fff;transition:width .3s}
+  .nav-left a:hover::after,.nav-left a.cur::after{width:100%}
+  .nav-logo{position:absolute;left:50%;transform:translateX(-50%);text-align:center}
+  .logo-script{font-size:46px}
+  .nav-right{display:flex;gap:16px;align-items:center;flex:1;justify-content:flex-end}
+  .nav-right a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap;transition:color .25s}
+  .nav-right a:hover{color:#fff}
+}
+/* OVERLAY */
 #overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:950;opacity:0;pointer-events:none;transition:opacity .35s}
 #overlay.on{opacity:1;pointer-events:all}
+/* MOBILE MENU */
 #menu{position:fixed;top:0;right:0;bottom:0;width:78%;max-width:300px;background:#1a4fd6;z-index:960;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 32px 40px;overflow-y:auto}
 #menu.on{transform:translateX(0)}
 #menu-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:#e53935;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;transition:background .25s}
@@ -31,11 +48,11 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-st
 #menu .msoc{display:flex;flex-direction:column;gap:0}
 #menu .msoc a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.72);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s}
 #menu .msoc a:hover{color:#fff}
-@media(min-width:900px){#nav{padding:0 64px}.nav-ham{display:none}.nav-desktop{display:flex;gap:28px;align-items:center}.nav-desktop a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;position:relative;padding-bottom:3px}.nav-desktop a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#fff;transition:width .3s}.nav-desktop a:hover::after,.nav-desktop a.cur::after{width:100%}}
+/* SHARED UTILS */
 .qbar{background:#1040b8;padding:28px 20px}
 .qbar blockquote{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,20px);font-style:italic;font-weight:600;line-height:1.55;color:#fff;max-width:900px}
 .qbar cite{display:block;margin-top:10px;font-style:normal;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.6)}
-@media(min-width:900px){.qbar{padding:44px 64px}}
+@media(min-width:960px){.qbar{padding:44px 64px}}
 .ph{background:#e8e8e8;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#aaa;width:100%;text-align:center;padding:14px}
 .lbl-b{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
 .lbl-d{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:#999;margin-bottom:10px}
@@ -43,8 +60,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-st
 .btn-w:hover{background:#111;color:#fff}
 .btn-b{display:inline-block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#fff;border:2px solid rgba(255,255,255,.6);padding:11px 24px;transition:all .3s}
 .btn-b:hover{background:#fff;color:#1a4fd6;border-color:#fff}
+/* FOOTER */
 footer{background:#0d3baa;padding:52px 20px 28px}
-@media(min-width:900px){footer{padding:64px 64px 36px}}
+@media(min-width:960px){footer{padding:64px 64px 36px}}
 .ft-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
 @media(min-width:600px){.ft-in{grid-template-columns:1.4fr 1fr 1fr;gap:48px}}
 .ft-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px}
@@ -56,49 +74,41 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 .ft-bot{max-width:1080px;margin:20px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .ft-bot p{font-size:11px;color:rgba(255,255,255,.35)}
 
-.pg-hdr{background:#1a4fd6;padding:56px 20px 44px}
-@media(min-width:900px){.pg-hdr{padding:72px 64px 56px}}
+.pg-hdr{background:#1a4fd6;padding:48px 20px 44px}
+@media(min-width:960px){.pg-hdr{padding:64px 64px 56px}}
 .pg-hdr h1{font-family:'Montserrat',sans-serif;font-size:clamp(56px,16vw,112px);font-weight:900;text-transform:uppercase;color:#fff;line-height:.9;margin-bottom:24px}
 .pg-hdr blockquote{font-family:'Open Sans',sans-serif;font-size:clamp(14px,3.8vw,18px);font-style:italic;color:rgba(255,255,255,.9);line-height:1.65;max-width:640px;margin-bottom:6px}
 .pg-hdr .ref{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.55)}
 .ml{background:#fff;padding:0 20px 60px}
-@media(min-width:900px){.ml{padding:0 64px 80px}}
-.mi{display:grid;grid-template-columns:1fr;padding:40px 0;border-top:1px solid #eee}
+@media(min-width:960px){.ml{padding:0 64px 80px}}
+.mi{display:grid;grid-template-columns:1fr;padding:36px 0;border-top:1px solid #eee}
 @media(min-width:700px){.mi{grid-template-columns:220px 1fr;gap:40px;align-items:center}.mi.alt{grid-template-columns:1fr 220px}.mi.alt .mi-img{order:2}.mi.alt .mi-txt{order:1}}
-.mi-img .ph{aspect-ratio:1/1;min-height:180px;margin-bottom:20px;background:#f0f0f0;color:#bbb}
-@media(min-width:700px){.mi-img .ph{margin-bottom:0}}
+.mi-img .ph{aspect-ratio:1/1;min-height:180px;background:#f0f0f0;color:#bbb}
+.mi-img{margin-bottom:20px}
+@media(min-width:700px){.mi-img{margin-bottom:0}}
 .mi-yr{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:#999;margin-bottom:8px}
 .mi-txt h2{font-family:'Montserrat',sans-serif;font-size:clamp(20px,5.5vw,30px);font-weight:900;text-transform:uppercase;color:#111;line-height:1.1;margin-bottom:10px}
 .mi-txt p{font-size:14px;line-height:1.85;color:#555;margin-bottom:20px;max-width:460px}
 .lks{display:flex;flex-wrap:wrap;gap:10px}
 .lks a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#111;border:1px solid #ccc;padding:9px 17px;transition:all .3s}
 .lks a:hover,.lks a.pri{background:#111;color:#fff;border-color:#111}
-.lks a.pri:hover{background:transparent;color:#111}
 </style>
 </head>
-<body style="padding-top:80px">
-
+<body>
 <div id="overlay"></div>
 <nav id="nav">
-  <div class="nav-left"><a href="index.html">Home</a><a href="about.html">About</a><a href="music.html"class="cur" >Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
+  <div class="nav-left"><a href="index.html">Home</a><a href="about.html">About</a><a href="music.html"class="cur">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
   <a href="index.html" class="nav-logo"><span class="logo-script">Pastor Zac</span><span class="logo-sub">Akinadewo</span></a>
   <div class="nav-right">
-    <a href="#" target="_blank">Apple</a>
-    <a href="#" target="_blank">Spotify</a>
-    <a href="#" target="_blank">Deezer</a>
-    <a href="#" target="_blank">Instagram</a>
-    <a href="#" target="_blank">Twitter</a>
+    <a href="#">Apple</a><a href="#">Spotify</a><a href="#">Deezer</a><a href="#">Instagram</a><a href="#">Twitter</a>
   </div>
   <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
 </nav>
 <div id="menu">
   <button id="menu-close">&#x2715;</button>
-  <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="music.html"class="cur" >Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+  <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="music.html"class="cur">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
   <div class="msep"></div><div class="msep"></div>
-  <div class="msoc">
-    <a href="#">Apple Music</a><a href="#">Spotify</a><a href="#">Deezer</a>
-    <a href="#">Instagram</a><a href="#">Twitter / X</a>
-  </div>
+  <div class="msoc"><a href="#">Apple Music</a><a href="#">Spotify</a><a href="#">Deezer</a><a href="#">Instagram</a><a href="#">Twitter / X</a></div>
 </div>
 
 <header class="pg-hdr">
@@ -107,32 +117,13 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   <p class="ref">Matthew 24:14</p>
 </header>
 <section class="ml">
-  <div class="mi">
-    <div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Album / Series Artwork ]</div></div>
-    <div class="mi-txt"><p class="mi-yr">Latest · 2025</p><h2>The Kingdom Now Series</h2><p>A 10-part teaching series on the reality of the Kingdom of God — what it means, how to enter it, and how to manifest it in every sphere of life. Stream and listen across all platforms.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div>
-  </div>
-  <div class="mi alt">
-    <div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Album / Series Artwork ]</div></div>
-    <div class="mi-txt"><p class="mi-yr">2024</p><h2>Fire of Revival</h2><p>An 8-part series on what revival truly is — its biblical foundations, its cost, and its fruit. Preached at the Fire Conference 2024.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div>
-  </div>
-  <div class="mi">
-    <div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Album / Series Artwork ]</div></div>
-    <div class="mi-txt"><p class="mi-yr">2024</p><h2>Grace &amp; Truth</h2><p>A 6-part series exploring the two pillars of the ministry of Jesus — grace and truth — and how the Church is called to embody both.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div>
-  </div>
-  <div class="mi alt">
-    <div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Album / Series Artwork ]</div></div>
-    <div class="mi-txt"><p class="mi-yr">2023</p><h2>The Anointing</h2><p>A 7-part series unpacking the anointing of the Holy Spirit — how to receive it, steward it, and move under it in daily life and ministry.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div>
-  </div>
-  <div class="mi">
-    <div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Album / Series Artwork ]</div></div>
-    <div class="mi-txt"><p class="mi-yr">2023</p><h2>Discipling Nations</h2><p>Drawing from Matthew 28, this 5-part series calls the Church back to her core mandate — not just to save souls, but to disciple entire nations.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div>
-  </div>
-  <div class="mi alt">
-    <div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Album / Series Artwork ]</div></div>
-    <div class="mi-txt"><p class="mi-yr">2022</p><h2>The Fear of the Lord</h2><p>An 8-part study on one of the most neglected doctrines in the modern Church — the fear of the Lord, and why it is the beginning of all wisdom.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div>
-  </div>
+  <div class="mi"><div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Series Artwork ]</div></div><div class="mi-txt"><p class="mi-yr">Latest · 2025</p><h2>The Kingdom Now Series</h2><p>A 10-part teaching series on the reality of the Kingdom of God — what it means, how to enter it, and how to manifest it in every sphere of life.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div></div>
+  <div class="mi alt"><div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Series Artwork ]</div></div><div class="mi-txt"><p class="mi-yr">2024</p><h2>Fire of Revival</h2><p>An 8-part series on what revival truly is — its biblical foundations, its cost, and its fruit. Preached at the Fire Conference 2024.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div></div>
+  <div class="mi"><div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Series Artwork ]</div></div><div class="mi-txt"><p class="mi-yr">2024</p><h2>Grace &amp; Truth</h2><p>A 6-part series exploring the two pillars of the ministry of Jesus — grace and truth — and how the Church is called to embody both.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div></div>
+  <div class="mi alt"><div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Series Artwork ]</div></div><div class="mi-txt"><p class="mi-yr">2023</p><h2>The Anointing</h2><p>A 7-part series unpacking the anointing of the Holy Spirit — how to receive it, steward it, and move under it in daily life and ministry.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div></div>
+  <div class="mi"><div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Series Artwork ]</div></div><div class="mi-txt"><p class="mi-yr">2023</p><h2>Discipling Nations</h2><p>Drawing from Matthew 28, this 5-part series calls the Church back to her core mandate — not just to save souls, but to disciple entire nations.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div></div>
+  <div class="mi alt"><div class="mi-img"><div class="ph" style="aspect-ratio:1/1;min-height:180px">[ Series Artwork ]</div></div><div class="mi-txt"><p class="mi-yr">2022</p><h2>The Fear of the Lord</h2><p>An 8-part study on one of the most neglected doctrines in the modern Church — the fear of the Lord, and why it is the beginning of all wisdom.</p><div class="lks"><a href="#" class="pri">Watch on YouTube</a><a href="#">Listen on Podcast</a></div></div></div>
 </section>
-
 <footer>
   <div class="ft-in">
     <div class="ft-col"><span class="logo-script" style="font-size:28px">Pastor Zac</span><span class="logo-sub" style="display:block;margin-top:2px">Akinadewo</span></div>
@@ -151,6 +142,5 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   m.querySelectorAll('nav a').forEach(function(l){l.addEventListener('click',cl)});
 })();
 </script>
-
 </body>
 </html>
