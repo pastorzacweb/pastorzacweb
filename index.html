@@ -7,7 +7,7 @@
 <meta name="description" content="Pastor Zac Akinadewo – Preacher, Teacher, Kingdom Builder."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Style+Script&family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@300;400;600;700;800;900&family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 /* ===== RESET ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -27,8 +27,10 @@ ul{list-style:none}
   height:80px;
   display:flex;align-items:center;
   padding:0 20px;
-  background:#1a4fd6;
+  background:transparent;
+  transition:background .4s;
 }
+#nav.scrolled{background:#1a4fd6}
 .nav-logo{
   display:inline-flex;
   line-height:1;text-decoration:none;
@@ -68,7 +70,7 @@ ul{list-style:none}
   .nav-logo{
     position:absolute;left:50%;transform:translateX(-50%);
   }
-  .logo-svg{height:62px}
+  .logo-svg{height:72px}
   .nav-right{
     display:flex;gap:18px;align-items:center;
     flex:1;justify-content:flex-end;
@@ -135,7 +137,7 @@ ul{list-style:none}
   position:absolute;
   right:0;top:0;bottom:0;
   width:62%;
-  background:url('pastorzac.jpeg') center top/cover no-repeat;
+  background:url('pastorzac.jpeg') center 15%/cover no-repeat;
   z-index:0;
 }
 /* Only a thin left-edge fade to blend into blue nav */
@@ -164,12 +166,16 @@ ul{list-style:none}
 @media(min-width:900px){.hero{padding:72px 64px 100px}.hero-arr{left:64px}.hero-c{max-width:46%}}
 /* Mobile: photo as full bg, light overlay so face shows */
 @media(max-width:599px){
-  .hero-img{width:100%}
+  .hero-img{
+    width:100%;
+    background-position:center top;
+    background-size:cover;
+  }
   .hero-img::before{
-    background:linear-gradient(135deg,
-      rgba(26,79,214,.75) 0%,
-      rgba(26,79,214,.25) 60%,
-      rgba(26,79,214,.1) 100%
+    background:linear-gradient(to bottom,
+      rgba(26,79,214,.15) 0%,
+      rgba(26,79,214,.2) 50%,
+      rgba(26,79,214,.85) 100%
     );
   }
   .hero-c{max-width:100%}
@@ -261,18 +267,18 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 <nav id="nav">
   <div class="nav-left"><a href="index.html"class="cur" >Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div>
   <a href="index.html" class="nav-logo" aria-label="Pastor Zac Akinadewo">
-    <svg class="logo-svg" viewBox="0 0 260 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <text x="2" y="42"
-        font-family="'Style Script', cursive"
-        font-size="48"
+    <svg class="logo-svg" viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="2" y="44"
+        font-family="'Great Vibes', cursive"
+        font-size="52"
         fill="white"
         font-weight="400"
         textLength="256"
         lengthAdjust="spacingAndGlyphs">Pastor Zac</text>
-      <text x="2" y="57"
-        font-family="'Montserrat', sans-serif"
-        font-size="11"
-        font-weight="600"
+      <text x="2" y="68"
+        font-family="'Raleway', sans-serif"
+        font-size="18"
+        font-weight="300"
         fill="white"
         textLength="256"
         lengthAdjust="spacing">AKINADEWO</text>
@@ -397,9 +403,9 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 <footer>
   <div class="ft-in">
     <div class="ft-col">
-      <svg viewBox="0 0 260 62" xmlns="http://www.w3.org/2000/svg" style="height:50px;width:auto;display:block">
-        <text x="2" y="42" font-family="'Style Script',cursive" font-size="48" fill="white" font-weight="400" textLength="256" lengthAdjust="spacingAndGlyphs">Pastor Zac</text>
-        <text x="2" y="57" font-family="'Montserrat',sans-serif" font-size="11" font-weight="600" fill="white" textLength="256" lengthAdjust="spacing">AKINADEWO</text>
+      <svg viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" style="height:54px;width:auto;display:block">
+        <text x="2" y="44" font-family="'Great Vibes',cursive" font-size="52" fill="white" font-weight="400" textLength="256" lengthAdjust="spacingAndGlyphs">Pastor Zac</text>
+        <text x="2" y="68" font-family="'Raleway',sans-serif" font-size="18" font-weight="300" fill="white" textLength="256" lengthAdjust="spacing">AKINADEWO</text>
       </svg>
     </div>
     <div class="ft-col">
