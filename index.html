@@ -164,19 +164,23 @@ ul{list-style:none}
 .hero-arr svg{width:26px;height:26px;stroke:rgba(255,255,255,.55);fill:none;stroke-width:2;animation:bob 2s ease infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 @media(min-width:900px){.hero{padding:72px 64px 100px}.hero-arr{left:64px}.hero-c{max-width:46%}}
-/* Mobile: photo as full bg, light overlay so face shows */
-@media(max-width:599px){
+/* Mobile: full width anchored right so Pastor Zac's figure is visible */
+@media(max-width:899px){
   .hero-img{
     width:100%;
-    background-position:center top;
+    right:0;left:0;
+    background-position:72% top;
     background-size:cover;
   }
   .hero-img::before{
-    background:linear-gradient(to bottom,
-      rgba(26,79,214,.15) 0%,
-      rgba(26,79,214,.2) 50%,
-      rgba(26,79,214,.85) 100%
+    background:linear-gradient(to right,
+      rgba(26,79,214,.92) 0%,
+      rgba(26,79,214,.55) 40%,
+      rgba(26,79,214,.1) 100%
     );
+  }
+  .hero-img::after{
+    background:linear-gradient(to top, rgba(10,30,120,.75) 0%, transparent 40%);
   }
   .hero-c{max-width:100%}
 }
