@@ -125,64 +125,113 @@ ul{list-style:none}
   .nav-desktop a:hover::after,.nav-desktop a.cur::after{width:100%}
 }
 
-/* ===== HERO — BLUE ===== */
+/* ===== HERO — exact Dunsin layout ===== */
 .hero{
-  min-height:100svh;background:#1a4fd6;
+  min-height:100svh;
+  background:#1a4fd6;
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;justify-content:flex-end;
-  padding:72px 20px 72px;
+  padding:80px 24px 72px;
 }
-/* Real photo — right side, clearly visible */
+
+/* Concentric circle / radial pattern — left side, exactly like Dunsin */
+.hero::before{
+  content:'';
+  position:absolute;
+  left:-10%;top:50%;
+  transform:translateY(-50%);
+  width:75vw;height:75vw;
+  background:
+    radial-gradient(circle, transparent 20%, rgba(255,255,255,.04) 20.5%, transparent 21%),
+    radial-gradient(circle, transparent 28%, rgba(255,255,255,.04) 28.5%, transparent 29%),
+    radial-gradient(circle, transparent 36%, rgba(255,255,255,.04) 36.5%, transparent 37%),
+    radial-gradient(circle, transparent 44%, rgba(255,255,255,.04) 44.5%, transparent 45%),
+    radial-gradient(circle, transparent 52%, rgba(255,255,255,.04) 52.5%, transparent 53%),
+    radial-gradient(circle, transparent 60%, rgba(255,255,255,.04) 60.5%, transparent 61%),
+    radial-gradient(circle, transparent 68%, rgba(255,255,255,.04) 68.5%, transparent 69%),
+    radial-gradient(circle, transparent 76%, rgba(255,255,255,.04) 76.5%, transparent 77%),
+    radial-gradient(circle, transparent 84%, rgba(255,255,255,.04) 84.5%, transparent 85%);
+  z-index:1;
+  pointer-events:none;
+}
+
+/* Pastor Zac photo — right side, upper body visible */
 .hero-img{
   position:absolute;
   right:0;top:0;bottom:0;
-  width:62%;
-  background:url('pastorzac.jpeg') center 15%/cover no-repeat;
-  z-index:0;
+  width:55%;
+  background:url('pastorzac.jpeg') center 10%/cover no-repeat;
+  z-index:2;
 }
-/* Only a thin left-edge fade to blend into blue nav */
+
+/* Fade photo into blue on the left edge */
 .hero-img::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(to right,
     #1a4fd6 0%,
-    #1a4fd6 5%,
-    rgba(26,79,214,.35) 28%,
-    rgba(26,79,214,.05) 55%,
-    transparent 100%
+    rgba(26,79,214,.7) 20%,
+    rgba(26,79,214,.2) 50%,
+    transparent 75%
   );
 }
-/* Very subtle bottom fade — just enough for legibility */
+
+/* Bottom fade for text legibility */
 .hero-img::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(10,30,120,.5) 0%, transparent 35%);
+  background:linear-gradient(to top,
+    rgba(10,30,120,.6) 0%,
+    transparent 40%
+  );
 }
-.hero-wm{position:absolute;right:-5px;bottom:-20px;font-family:'Pinyon Script',cursive;font-size:58vw;font-weight:700;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;z-index:1;user-select:none}
-.hero-c{position:relative;z-index:2;max-width:55%}
-.hero-c h1{font-family:'Montserrat',sans-serif;font-size:clamp(36px,9vw,82px);font-weight:900;text-transform:uppercase;line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,30,.4)}
-.hero-c p{font-size:clamp(13px,3.2vw,16px);line-height:1.75;color:rgba(255,255,255,.92);max-width:380px;text-shadow:0 1px 6px rgba(0,0,30,.5)}
-.hero-arr{position:absolute;bottom:32px;left:20px;z-index:3}
-.hero-arr svg{width:26px;height:26px;stroke:rgba(255,255,255,.55);fill:none;stroke-width:2;animation:bob 2s ease infinite}
+
+.hero-c{position:relative;z-index:3;max-width:52%}
+.hero-c h1{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(36px,5.5vw,72px);
+  font-weight:900;text-transform:uppercase;
+  line-height:1.0;color:#fff;
+  margin-bottom:20px;letter-spacing:-.01em;
+}
+.hero-c p{
+  font-size:clamp(13px,1.4vw,16px);
+  line-height:1.75;color:rgba(255,255,255,.92);
+  max-width:400px;
+}
+.hero-arr{position:absolute;bottom:32px;left:24px;z-index:3}
+.hero-arr svg{width:26px;height:26px;stroke:rgba(255,255,255,.65);fill:none;stroke-width:2;animation:bob 2s ease infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-@media(min-width:900px){.hero{padding:72px 64px 100px}.hero-arr{left:64px}.hero-c{max-width:46%}}
-/* Mobile: full width anchored right so Pastor Zac's figure is visible */
+
+/* Desktop */
+@media(min-width:900px){
+  .hero{padding:80px 64px 100px}
+  .hero-arr{left:64px}
+  .hero::before{width:60vw;height:60vw;left:-5%}
+  .hero-img{
+    width:52%;
+    background-position:center 8%;
+  }
+  .hero-c{max-width:44%}
+}
+
+/* Mobile — full width, anchored to show his face/upper body */
 @media(max-width:899px){
   .hero-img{
-    width:100%;
-    right:0;left:0;
-    background-position:72% top;
+    width:100%;right:0;left:0;
+    background-position:75% top;
     background-size:cover;
   }
   .hero-img::before{
     background:linear-gradient(to right,
-      rgba(26,79,214,.92) 0%,
-      rgba(26,79,214,.55) 40%,
-      rgba(26,79,214,.1) 100%
+      rgba(26,79,214,.95) 0%,
+      rgba(26,79,214,.6) 45%,
+      rgba(26,79,214,.15) 100%
     );
   }
   .hero-img::after{
-    background:linear-gradient(to top, rgba(10,30,120,.75) 0%, transparent 40%);
+    background:linear-gradient(to top, rgba(10,30,120,.8) 0%, transparent 45%);
   }
   .hero-c{max-width:100%}
+  .hero::before{width:120vw;height:120vw;left:-20%}
 }
 
 /* ===== BLUE QUOTE BAR ===== */
@@ -307,10 +356,9 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   </div>
 </div>
 
-<!-- HERO — BLUE with real photo -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-img"></div>
-  <div class="hero-wm">Z</div>
   <div class="hero-c">
     <h1>Declaring<br>the Word<br>of God</h1>
     <p>Pastor Zac Akinadewo is a preacher and teacher called to proclaim the Kingdom of God and disciple nations through the power of the Holy Spirit.</p>
