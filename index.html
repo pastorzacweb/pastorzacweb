@@ -287,11 +287,37 @@ ul{list-style:none}
 @media(min-width:900px){.videos-s{padding:80px 64px}}
 .videos-s h2{font-family:'Montserrat',sans-serif;font-size:clamp(22px,5.5vw,34px);font-weight:900;text-transform:uppercase;color:#111;margin-bottom:8px}
 .videos-s .sub{font-size:14px;color:#666;margin-bottom:28px}
-.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(min-width:900px){.vgrid{grid-template-columns:repeat(3,1fr);gap:12px}}
-.vth .ph{aspect-ratio:16/9;position:relative}
-.vth-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:30px;color:rgba(0,0,0,.3);pointer-events:none}
-.videos-more{margin-top:24px}
+/* ── VIDEO CAROUSEL ── */
+.videos-s{background:#fff;padding:56px 20px}
+@media(min-width:960px){.videos-s{padding:80px 64px}}
+.videos-s h2{font-family:'Montserrat',sans-serif;font-size:clamp(22px,5.5vw,34px);font-weight:900;text-transform:uppercase;color:#111;margin-bottom:10px;text-align:center}
+.videos-s .sub{font-size:15px;color:#555;margin-bottom:36px;text-align:center;line-height:1.6}
+.carousel-wrap{position:relative;max-width:900px;margin:0 auto}
+.carousel-track-outer{overflow:hidden;width:100%}
+.carousel-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);will-change:transform}
+.carousel-slide{flex:0 0 90%;max-width:90%;padding:0 8px}
+@media(min-width:600px){.carousel-slide{flex:0 0 80%;max-width:80%}}
+@media(min-width:900px){.carousel-slide{flex:0 0 78%;max-width:78%}}
+.carousel-slide iframe{width:100%;aspect-ratio:16/9;display:block;border:none;border-radius:4px}
+/* Arrows */
+.car-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.92);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  z-index:2;transition:background .2s;
+}
+.car-btn:hover{background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.car-btn svg{width:18px;height:18px;stroke:#111;fill:none;stroke-width:2.5}
+.car-prev{left:-16px}
+.car-next{right:-16px}
+@media(min-width:960px){.car-prev{left:-22px}.car-next{right:-22px}}
+/* Dots */
+.car-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+.car-dot{width:10px;height:10px;border-radius:50%;border:2px solid #bbb;background:transparent;cursor:pointer;padding:0;transition:all .25s}
+.car-dot.on{border-color:#111;background:#111}
+.videos-more{margin-top:32px;text-align:center}
 
 /* ===== MINISTRY PROMO — BLUE ===== */
 .min-promo{background:#1a4fd6;padding:56px 20px}
@@ -338,11 +364,12 @@ footer{background:#0d3baa;padding:52px 20px 28px}
     </svg>
   </a>
   <div class="nav-right">
-    <a href="#" target="_blank">Apple</a>
-    <a href="#" target="_blank">Spotify</a>
-    <a href="#" target="_blank">Deezer</a>
-    <a href="#" target="_blank">Instagram</a>
-    <a href="#" target="_blank">Twitter</a>
+    <a href="https://music.apple.com/us/artist/pastor-zac/1880337243" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/artist/2UkkyxNa4zAlfLic4880gp?si=fowdQ0k7Q1SIVAgrJln8xg" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://link.deezer.com/s/334apOVuZYTK9oaWLYTto" target="_blank" rel="noopener">Deezer</a>
+    <a href="https://tidal.com/artist/75466001/u" target="_blank" rel="noopener">Tidal</a>
+    <a href="https://www.instagram.com/pastorzac?igsh=MXJxYWIyank5anlv&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@pastorzacofficial" target="_blank" rel="noopener">YouTube</a>
   </div>
   <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
 </nav>
@@ -351,8 +378,13 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   <nav><a href="index.html"class="cur" >Home</a><a href="about.html">About</a><a href="music.html">Music</a><a href="ministry.html">Ministry</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
   <div class="msep"></div><div class="msep"></div>
   <div class="msoc">
-    <a href="#">Apple Music</a><a href="#">Spotify</a><a href="#">Deezer</a>
-    <a href="#">Instagram</a><a href="#">Twitter / X</a>
+    <a href="https://music.apple.com/us/artist/pastor-zac/1880337243" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/artist/2UkkyxNa4zAlfLic4880gp?si=fowdQ0k7Q1SIVAgrJln8xg" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://music.youtube.com/channel/UCSPBLqTf0imsWoTKqObG0rQ?si=5go6NRGtAGwfVM7V" target="_blank" rel="noopener">YouTube Music</a>
+    <a href="https://link.deezer.com/s/334apOVuZYTK9oaWLYTto" target="_blank" rel="noopener">Deezer</a>
+    <a href="https://tidal.com/artist/75466001/u" target="_blank" rel="noopener">Tidal</a>
+    <a href="https://www.instagram.com/pastorzac?igsh=MXJxYWIyank5anlv&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@pastorzacofficial" target="_blank" rel="noopener">YouTube</a>
   </div>
 </div>
 
@@ -414,32 +446,43 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   </div>
 </section>
 
-<!-- VIDEOS — WHITE -->
-<section class="videos-s">
-  <h2>Worship Videos</h2>
+<!-- VIDEOS — Carousel -->
+<section class="videos-s" id="videos">
+  <h2>Sermon Videos</h2>
   <p class="sub">Experience the presence of God in an atmosphere of the Word.</p>
-  <div class="vgrid">
-    <div class="vth">
-      <div class="ph" style="aspect-ratio:16/9;position:relative">
-        <span class="vth-play">▶</span>
-        [ Video 1 ]
+  <div class="carousel-wrap">
+    <!-- Prev arrow -->
+    <button class="car-btn car-prev" id="carPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg>
+    </button>
+    <!-- Track -->
+    <div class="carousel-track-outer">
+      <div class="carousel-track" id="carTrack">
+        <div class="carousel-slide">
+          <iframe src="https://www.youtube.com/embed/7US7DVvdIlA"
+            title="Pastor Zac Akinadewo Sermon"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="carousel-slide">
+          <iframe src="https://www.youtube.com/embed/Jf-qizZq7IE"
+            title="Pastor Zac Akinadewo Sermon"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+        </div>
       </div>
     </div>
-    <div class="vth">
-      <div class="ph" style="aspect-ratio:16/9;position:relative">
-        <span class="vth-play">▶</span>
-        [ Video 2 ]
-      </div>
-    </div>
-    <div class="vth" style="display:none" id="v3">
-      <div class="ph" style="aspect-ratio:16/9;position:relative">
-        <span class="vth-play">▶</span>
-        [ Video 3 ]
-      </div>
-    </div>
+    <!-- Next arrow -->
+    <button class="car-btn car-next" id="carNext" aria-label="Next">
+      <svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>
+    </button>
+    <!-- Dots -->
+    <div class="car-dots" id="carDots"></div>
   </div>
   <div class="videos-more">
-    <a href="https://youtube.com" class="btn-w" target="_blank" rel="noopener">More Videos</a>
+    <a href="https://youtube.com/@pastorzacofficial" class="btn-w" target="_blank" rel="noopener">More Videos</a>
   </div>
 </section>
 
@@ -466,9 +509,18 @@ footer{background:#0d3baa;padding:52px 20px 28px}
     </div>
     <div class="ft-col">
       <p class="ft-lbl">Connect</p>
-      <div class="ft-soc"><a href="#">Facebook</a><a href="#">Twitter</a><a href="#">Instagram</a></div>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/pastorzac?igsh=MXJxYWIyank5anlv&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://youtube.com/@pastorzacofficial" target="_blank" rel="noopener">YouTube</a>
+      </div>
       <p class="ft-lbl" style="margin-top:14px">Stream</p>
-      <div class="ft-soc"><a href="#">YouTube</a><a href="#">Spotify</a><a href="#">Apple Music</a></div>
+      <div class="ft-soc">
+        <a href="https://music.apple.com/us/artist/pastor-zac/1880337243" target="_blank" rel="noopener">Apple Music</a>
+        <a href="https://open.spotify.com/artist/2UkkyxNa4zAlfLic4880gp?si=fowdQ0k7Q1SIVAgrJln8xg" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.youtube.com/channel/UCSPBLqTf0imsWoTKqObG0rQ?si=5go6NRGtAGwfVM7V" target="_blank" rel="noopener">YouTube Music</a>
+        <a href="https://link.deezer.com/s/334apOVuZYTK9oaWLYTto" target="_blank" rel="noopener">Deezer</a>
+        <a href="https://tidal.com/artist/75466001/u" target="_blank" rel="noopener">Tidal</a>
+      </div>
     </div>
   </div>
   <div class="ft-bot">
@@ -488,5 +540,63 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   if(window.innerWidth>=900){var v=document.getElementById('v3');if(v)v.style.display='block'}
 })();
 </script>
+
+<script>
+/* ── Video Carousel ── */
+(function(){
+  var track  = document.getElementById('carTrack');
+  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  var dotsWrap = document.getElementById('carDots');
+  var prev   = document.getElementById('carPrev');
+  var next   = document.getElementById('carNext');
+  if(!track || !slides.length) return;
+
+  var cur = 0;
+  var total = slides.length;
+
+  // Build dots
+  for(var i=0;i<total;i++){
+    var d = document.createElement('button');
+    d.className = 'car-dot' + (i===0?' on':'');
+    d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.dataset.i = i;
+    dotsWrap.appendChild(d);
+  }
+
+  function slideWidth(){
+    return slides[0].getBoundingClientRect().width;
+  }
+
+  function goTo(n){
+    cur = (n + total) % total;
+    // Center the active slide
+    var offset = cur * slideWidth();
+    track.style.transform = 'translateX(-'+offset+'px)';
+    // Update dots
+    dotsWrap.querySelectorAll('.car-dot').forEach(function(d,i){
+      d.classList.toggle('on', i===cur);
+    });
+  }
+
+  prev.addEventListener('click', function(){ goTo(cur-1); });
+  next.addEventListener('click', function(){ goTo(cur+1); });
+  dotsWrap.addEventListener('click', function(e){
+    var d = e.target.closest('.car-dot');
+    if(d) goTo(parseInt(d.dataset.i));
+  });
+
+  // Touch/swipe support
+  var startX = 0;
+  track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend',   function(e){
+    var diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) diff > 0 ? goTo(cur+1) : goTo(cur-1);
+  }, {passive:true});
+
+  // Reposition on resize
+  window.addEventListener('resize', function(){ goTo(cur); });
+})();
+</script>
+
 </body>
 </html>

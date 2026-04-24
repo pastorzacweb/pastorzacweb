@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Videos – Pastor Zac Akinadewo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@300;400;600;700;800;900&family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:#fff;color:#111;overflow-x:hidden;padding-top:80px}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}ul{list-style:none}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:80px;display:flex;align-items:center;padding:0 20px;background:transparent;transition:background .4s}
+#nav.scrolled{background:#1a4fd6}
+.nav-logo{display:inline-flex;line-height:1;text-decoration:none;flex-shrink:0}
+.logo-svg{height:60px;width:auto;display:block}
+.nav-ham{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:902;margin-left:auto}
+.nav-ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.nav-left{display:none}.nav-right{display:none}
+@media(min-width:960px){
+  #nav{padding:0 40px;justify-content:space-between}
+  .nav-ham{display:none}
+  .nav-left{display:flex;gap:22px;align-items:center;flex:1}
+  .nav-left a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;position:relative;padding-bottom:3px}
+  .nav-left a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:#fff;transition:width .3s}
+  .nav-left a:hover::after,.nav-left a.cur::after{width:100%}
+  .nav-logo{position:absolute;left:50%;transform:translateX(-50%)}
+  .logo-svg{height:72px}
+  .nav-right{display:flex;gap:16px;align-items:center;flex:1;justify-content:flex-end}
+  .nav-right a{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.82);white-space:nowrap;transition:color .25s}
+  .nav-right a:hover{color:#fff}
+}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:950;opacity:0;pointer-events:none;transition:opacity .35s}
+#overlay.on{opacity:1;pointer-events:all}
+#menu{position:fixed;top:0;right:0;bottom:0;width:78%;max-width:300px;background:#1a4fd6;z-index:960;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:80px 32px 40px;overflow-y:auto}
+#menu.on{transform:translateX(0)}
+#menu-close{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:#e53935;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700}
+#menu nav{display:flex;flex-direction:column;gap:2px;margin-bottom:28px}
+#menu nav a{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700;color:#fff;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.15);transition:color .2s}
+#menu nav a:hover,#menu nav a.cur{color:rgba(255,255,255,.65);text-decoration:underline}
+.msep{height:1px;background:rgba(255,255,255,.2);margin:8px 0 16px}
+#menu .msoc{display:flex;flex-direction:column;gap:0}
+#menu .msoc a{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.72);padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+
+/* PAGE HEADER */
+.pg-hdr{background:#1a4fd6;padding:56px 20px 44px}
+@media(min-width:960px){.pg-hdr{padding:72px 64px 56px}}
+.pg-hdr h1{font-family:'Montserrat',sans-serif;font-size:clamp(48px,12vw,96px);font-weight:900;text-transform:uppercase;color:#fff;line-height:.9}
+
+/* VIDEO GRID */
+.all-videos{background:#fff;padding:48px 20px 64px}
+@media(min-width:960px){.all-videos{padding:64px 64px 80px}}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(min-width:600px){.vgrid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:960px){.vgrid{grid-template-columns:repeat(4,1fr);gap:20px}}
+.vth{cursor:pointer;position:relative}
+.vth a{text-decoration:none;display:block;color:#111}
+.vth img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .3s,opacity .3s}
+.vth:hover img{transform:scale(1.03);opacity:.85}
+.vth-info{padding:10px 0 4px}
+.vth-title{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:#222;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vth-date{font-family:'Montserrat',sans-serif;font-size:10px;color:#999;margin-top:4px}
+.vth-play-btn{position:absolute;top:calc(50% - 24px);left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:rgba(255,0,0,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;pointer-events:none}
+.vth-play-btn svg{fill:#fff;width:18px;height:18px;margin-left:3px}
+.vth:hover .vth-play-btn{opacity:1}
+
+/* LOAD MORE */
+.load-more-wrap{text-align:center;margin-top:40px}
+.btn-load{display:inline-block;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#111;border:2px solid #111;padding:13px 32px;cursor:pointer;background:none;transition:all .3s}
+.btn-load:hover{background:#111;color:#fff}
+.btn-load:disabled{opacity:.4;cursor:not-allowed}
+.v-status{text-align:center;padding:20px;font-family:'Montserrat',sans-serif;font-size:12px;color:#999;letter-spacing:.1em;grid-column:1/-1}
+
+/* FOOTER */
+footer{background:#0d3baa;padding:52px 20px 28px}
+@media(min-width:960px){footer{padding:64px 64px 36px}}
+.ft-in{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
+@media(min-width:600px){.ft-in{grid-template-columns:1.4fr 1fr 1fr;gap:48px}}
+.ft-lbl{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:12px}
+.ft-col a,.ft-col p{font-size:13px;color:rgba(255,255,255,.72);line-height:2.1;display:block;transition:color .3s}
+.ft-col a:hover{color:#fff}
+.ft-soc{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.ft-soc a{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)!important;border:1px solid rgba(255,255,255,.25);padding:5px 11px;line-height:1!important;transition:all .3s}
+.ft-soc a:hover{background:rgba(255,255,255,.15);color:#fff!important}
+.ft-bot{max-width:1080px;margin:20px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-bot p{font-size:11px;color:rgba(255,255,255,.35)}
+</style>
+</head>
+<body>
+
+<div id="overlay"></div>
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="music.html">Music</a><a href="ministry.html">Ministry</a>
+    <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+  </div>
+  <a href="index.html" class="nav-logo" aria-label="Pastor Zac Akinadewo">
+    <svg class="logo-svg" viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <text x="2" y="44" font-family="'Great Vibes',cursive" font-size="52" fill="white" font-weight="400" textLength="256" lengthAdjust="spacingAndGlyphs">Pastor Zac</text>
+      <text x="2" y="68" font-family="'Raleway',sans-serif" font-size="18" font-weight="600" fill="white" textLength="256" lengthAdjust="spacing">AKINADEWO</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <a href="https://music.apple.com/us/artist/pastor-zac/1880337243" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/artist/2UkkyxNa4zAlfLic4880gp?si=fowdQ0k7Q1SIVAgrJln8xg" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://link.deezer.com/s/334apOVuZYTK9oaWLYTto" target="_blank" rel="noopener">Deezer</a>
+    <a href="https://tidal.com/artist/75466001/u" target="_blank" rel="noopener">Tidal</a>
+    <a href="https://www.instagram.com/pastorzac?igsh=MXJxYWIyank5anlv&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@pastorzacofficial" target="_blank" rel="noopener">YouTube</a>
+  </div>
+  <button class="nav-ham" id="ham"><span></span><span></span><span></span></button>
+</nav>
+<div id="menu">
+  <button id="menu-close">&#x2715;</button>
+  <nav>
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="music.html">Music</a><a href="ministry.html">Ministry</a>
+    <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+  </nav>
+  <div class="msep"></div><div class="msep"></div>
+  <div class="msoc">
+    <a href="https://music.apple.com/us/artist/pastor-zac/1880337243" target="_blank" rel="noopener">Apple Music</a>
+    <a href="https://open.spotify.com/artist/2UkkyxNa4zAlfLic4880gp?si=fowdQ0k7Q1SIVAgrJln8xg" target="_blank" rel="noopener">Spotify</a>
+    <a href="https://music.youtube.com/channel/UCSPBLqTf0imsWoTKqObG0rQ?si=5go6NRGtAGwfVM7V" target="_blank" rel="noopener">YouTube Music</a>
+    <a href="https://link.deezer.com/s/334apOVuZYTK9oaWLYTto" target="_blank" rel="noopener">Deezer</a>
+    <a href="https://tidal.com/artist/75466001/u" target="_blank" rel="noopener">Tidal</a>
+    <a href="https://www.instagram.com/pastorzac?igsh=MXJxYWIyank5anlv&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://youtube.com/@pastorzacofficial" target="_blank" rel="noopener">YouTube</a>
+  </div>
+</div>
+
+<header class="pg-hdr">
+  <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:12px">YouTube</p>
+  <h1>All Videos</h1>
+</header>
+
+<section class="all-videos">
+  <div class="vgrid" id="videoGrid">
+    <div class="v-status">Loading videos…</div>
+  </div>
+  <div class="load-more-wrap">
+    <button class="btn-load" id="loadMoreBtn" style="display:none">Load More</button>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-in">
+    <div class="ft-col">
+      <svg viewBox="0 0 260 72" xmlns="http://www.w3.org/2000/svg" style="height:50px;width:auto;display:block">
+        <text x="2" y="44" font-family="'Great Vibes',cursive" font-size="52" fill="white" font-weight="400" textLength="256" lengthAdjust="spacingAndGlyphs">Pastor Zac</text>
+        <text x="2" y="68" font-family="'Raleway',sans-serif" font-size="18" font-weight="600" fill="white" textLength="256" lengthAdjust="spacing">AKINADEWO</text>
+      </svg>
+    </div>
+    <div class="ft-col"><p class="ft-lbl">Contact</p><a href="mailto:info@pastorzacakinadewo.com">info@pastorzacakinadewo.com</a></div>
+    <div class="ft-col">
+      <p class="ft-lbl">Connect</p>
+      <div class="ft-soc">
+        <a href="https://www.instagram.com/pastorzac?igsh=MXJxYWIyank5anlv&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://youtube.com/@pastorzacofficial" target="_blank" rel="noopener">YouTube</a>
+      </div>
+      <p class="ft-lbl" style="margin-top:14px">Stream</p>
+      <div class="ft-soc">
+        <a href="https://music.apple.com/us/artist/pastor-zac/1880337243" target="_blank" rel="noopener">Apple Music</a>
+        <a href="https://open.spotify.com/artist/2UkkyxNa4zAlfLic4880gp?si=fowdQ0k7Q1SIVAgrJln8xg" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.youtube.com/channel/UCSPBLqTf0imsWoTKqObG0rQ?si=5go6NRGtAGwfVM7V" target="_blank" rel="noopener">YouTube Music</a>
+        <a href="https://link.deezer.com/s/334apOVuZYTK9oaWLYTto" target="_blank" rel="noopener">Deezer</a>
+        <a href="https://tidal.com/artist/75466001/u" target="_blank" rel="noopener">Tidal</a>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bot"><p>&copy; 2025 Pastor Zac Akinadewo. All rights reserved.</p><p>pastorzacakinadewo.com</p></div>
+</footer>
+
+<script>
+/* ── YouTube All Videos loader ───────────────────────────────────
+   Replace YOUR_YOUTUBE_API_KEY with your actual Google API key.
+   Get one free at: console.cloud.google.com → YouTube Data API v3
+─────────────────────────────────────────────────────────────── */
+var API_KEY   = 'YOUR_YOUTUBE_API_KEY'; // ← paste your key here
+var HANDLE    = 'pastorzacofficial';
+var PER_PAGE  = 12;
+var channelId = null;
+var nextToken = null;
+var loading   = false;
+
+function formatDate(iso){
+  return new Date(iso).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+}
+
+function addVideos(items){
+  var grid = document.getElementById('videoGrid');
+  // Remove loading message if present
+  var status = grid.querySelector('.v-status');
+  if(status) status.remove();
+
+  items.forEach(function(item){
+    var vid   = item.id.videoId;
+    var thumb = (item.snippet.thumbnails.high||item.snippet.thumbnails.medium).url;
+    var title = item.snippet.title;
+    var date  = formatDate(item.snippet.publishedAt);
+    var url   = 'https://www.youtube.com/watch?v='+vid;
+
+    var el = document.createElement('div');
+    el.className = 'vth';
+    el.innerHTML =
+      '<a href="'+url+'" target="_blank" rel="noopener">'+
+        '<div style="position:relative;overflow:hidden">'+
+          '<img src="'+thumb+'" alt="'+title.replace(/"/g,'&quot;')+'" loading="lazy"/>'+
+          '<div class="vth-play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>'+
+        '</div>'+
+        '<div class="vth-info">'+
+          '<div class="vth-title">'+title+'</div>'+
+          '<div class="vth-date">'+date+'</div>'+
+        '</div>'+
+      '</a>';
+    grid.appendChild(el);
+  });
+}
+
+function loadVideos(cid, token){
+  if(loading) return;
+  loading = true;
+  var btn = document.getElementById('loadMoreBtn');
+  if(btn) btn.disabled = true;
+
+  var url = 'https://www.googleapis.com/youtube/v3/search'
+    +'?part=snippet&channelId='+cid
+    +'&maxResults='+PER_PAGE
+    +'&order=date&type=video'
+    +'&key='+API_KEY
+    +(token ? '&pageToken='+token : '');
+
+  fetch(url)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      loading = false;
+      if(data.items && data.items.length){
+        addVideos(data.items);
+        nextToken = data.nextPageToken || null;
+        if(btn){
+          btn.style.display = nextToken ? 'inline-block' : 'none';
+          btn.disabled = false;
+        }
+      } else {
+        var grid = document.getElementById('videoGrid');
+        grid.innerHTML = '<div class="v-status">No videos found. <a href="https://youtube.com/@pastorzacofficial" target="_blank" style="color:#1a4fd6">Visit YouTube →</a></div>';
+      }
+    })
+    .catch(function(){
+      loading = false;
+      var grid = document.getElementById('videoGrid');
+      grid.innerHTML = '<div class="v-status"><a href="https://youtube.com/@pastorzacofficial" target="_blank" style="color:#1a4fd6">Watch on YouTube →</a></div>';
+    });
+}
+
+function init(){
+  var grid = document.getElementById('videoGrid');
+  if(API_KEY === 'YOUR_YOUTUBE_API_KEY'){
+    grid.innerHTML = '<div class="v-status">Set your YouTube API key to load videos.<br><a href="https://youtube.com/@pastorzacofficial" target="_blank" style="color:#1a4fd6;margin-top:8px;display:inline-block">Visit YouTube Channel →</a></div>';
+    return;
+  }
+
+  // Resolve @handle to channel ID
+  fetch('https://www.googleapis.com/youtube/v3/channels?part=id&forHandle='+HANDLE+'&key='+API_KEY)
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(data.items && data.items.length){
+        channelId = data.items[0].id;
+        loadVideos(channelId, null);
+        var btn = document.getElementById('loadMoreBtn');
+        if(btn) btn.addEventListener('click', function(){
+          if(channelId && nextToken) loadVideos(channelId, nextToken);
+        });
+      }
+    });
+}
+
+// Nav
+(function(){
+  var nav=document.getElementById('nav');
+  nav.classList.add('scrolled');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10);});
+  var h=document.getElementById('ham'),m=document.getElementById('menu'),
+      o=document.getElementById('overlay'),c=document.getElementById('menu-close');
+  function op(){m.classList.add('on');o.classList.add('on');document.body.style.overflow='hidden'}
+  function cl(){m.classList.remove('on');o.classList.remove('on');document.body.style.overflow=''}
+  h.addEventListener('click',op);c.addEventListener('click',cl);o.addEventListener('click',cl);
+  m.querySelectorAll('nav a').forEach(function(l){l.addEventListener('click',cl)});
+})();
+
+init();
+</script>
+</body>
+</html>
