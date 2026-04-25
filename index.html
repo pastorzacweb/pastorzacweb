@@ -125,66 +125,35 @@ ul{list-style:none}
   .nav-desktop a:hover::after,.nav-desktop a.cur::after{width:100%}
 }
 
-/* ===== HERO — exact Dunsin layout ===== */
+/* ===== HERO — pure photo background, exactly like Dunsin ===== */
 .hero{
   min-height:100svh;
-  background:#1a4fd6;
+  background:#111;
   position:relative;overflow:hidden;
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:80px 24px 72px;
 }
-
-/* Concentric circle / radial pattern — left side, exactly like Dunsin */
-.hero::before{
-  content:'';
-  position:absolute;
-  left:-10%;top:50%;
-  transform:translateY(-50%);
-  width:75vw;height:75vw;
-  background:
-    radial-gradient(circle, transparent 20%, rgba(255,255,255,.04) 20.5%, transparent 21%),
-    radial-gradient(circle, transparent 28%, rgba(255,255,255,.04) 28.5%, transparent 29%),
-    radial-gradient(circle, transparent 36%, rgba(255,255,255,.04) 36.5%, transparent 37%),
-    radial-gradient(circle, transparent 44%, rgba(255,255,255,.04) 44.5%, transparent 45%),
-    radial-gradient(circle, transparent 52%, rgba(255,255,255,.04) 52.5%, transparent 53%),
-    radial-gradient(circle, transparent 60%, rgba(255,255,255,.04) 60.5%, transparent 61%),
-    radial-gradient(circle, transparent 68%, rgba(255,255,255,.04) 68.5%, transparent 69%),
-    radial-gradient(circle, transparent 76%, rgba(255,255,255,.04) 76.5%, transparent 77%),
-    radial-gradient(circle, transparent 84%, rgba(255,255,255,.04) 84.5%, transparent 85%);
-  z-index:1;
-  pointer-events:none;
-}
-
-/* Pastor Zac photo — right side, upper body visible */
+/* Full bleed photo */
 .hero-img{
-  position:absolute;
-  right:0;top:0;bottom:0;
-  width:55%;
-  background:url('pastorzac.jpeg') center 10%/cover no-repeat;
-  z-index:2;
+  position:absolute;inset:0;
+  background:url('pastorzac.jpeg') 65% center/cover no-repeat;
+  z-index:0;
 }
-
-/* Fade photo into blue on the left edge */
+/* Only a dark gradient over text area for legibility — no blue */
 .hero-img::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to right,
-    #1a4fd6 0%,
-    rgba(26,79,214,.7) 20%,
-    rgba(26,79,214,.2) 50%,
-    transparent 75%
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,.72) 0%,
+    rgba(0,0,0,.4) 45%,
+    rgba(0,0,0,.05) 100%
   );
 }
-
-/* Bottom fade for text legibility */
 .hero-img::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(to top,
-    rgba(10,30,120,.6) 0%,
-    transparent 40%
-  );
+  background:linear-gradient(to top, rgba(0,0,0,.5) 0%, transparent 55%);
 }
-
-.hero-c{position:relative;z-index:3;max-width:52%}
+.hero-c{position:relative;z-index:2;max-width:55%}
 .hero-c h1{
   font-family:'Montserrat',sans-serif;
   font-size:clamp(36px,5.5vw,72px);
@@ -200,45 +169,72 @@ ul{list-style:none}
 .hero-arr{position:absolute;bottom:32px;left:24px;z-index:3}
 .hero-arr svg{width:26px;height:26px;stroke:rgba(255,255,255,.65);fill:none;stroke-width:2;animation:bob 2s ease infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
-
-/* Desktop */
 @media(min-width:900px){
   .hero{padding:80px 64px 100px}
   .hero-arr{left:64px}
-  .hero::before{width:60vw;height:60vw;left:-5%}
-  .hero-img{
-    width:52%;
-    background-position:center 8%;
-  }
+  .hero-img{background-position:60% center}
   .hero-c{max-width:44%}
 }
-
-/* Mobile — full width, anchored to show his face/upper body */
 @media(max-width:899px){
-  .hero-img{
-    width:100%;right:0;left:0;
-    background-position:75% top;
-    background-size:cover;
-  }
+  .hero-img{background-position:72% top}
   .hero-img::before{
     background:linear-gradient(to right,
-      rgba(26,79,214,.95) 0%,
-      rgba(26,79,214,.6) 45%,
-      rgba(26,79,214,.15) 100%
+      rgba(0,0,0,.82) 0%,
+      rgba(0,0,0,.5) 55%,
+      rgba(0,0,0,.1) 100%
     );
   }
-  .hero-img::after{
-    background:linear-gradient(to top, rgba(10,30,120,.8) 0%, transparent 45%);
-  }
   .hero-c{max-width:100%}
-  .hero::before{width:120vw;height:120vw;left:-20%}
 }
 
-/* ===== BLUE QUOTE BAR ===== */
-.qbar{background:#1040b8;padding:28px 20px}
-.qbar blockquote{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,20px);font-style:italic;font-weight:600;line-height:1.55;color:#fff;max-width:900px}
-.qbar cite{display:block;margin-top:10px;font-style:normal;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.6)}
-@media(min-width:900px){.qbar{padding:44px 64px}}
+/* ===== QUOTE+ABOUT SPLIT — exactly like Dunsin ===== */
+.qbar{padding:0}
+.qbar-inner{
+  display:grid;grid-template-columns:1fr;
+}
+@media(min-width:700px){
+  .qbar-inner{grid-template-columns:1fr 1fr}
+}
+.qbar-left{
+  background:#1040b8;
+  padding:48px 28px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+@media(min-width:900px){.qbar-left{padding:64px 64px}}
+.qbar-left blockquote{
+  font-family:'Open Sans',sans-serif;
+  font-size:clamp(15px,2.5vw,19px);
+  font-style:italic;font-weight:600;
+  line-height:1.6;color:#fff;
+}
+.qbar-left cite{
+  display:block;margin-top:14px;font-style:normal;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.15em;
+  color:rgba(255,255,255,.6);text-transform:uppercase;
+}
+.qbar-right{
+  background:#fff;
+  padding:48px 28px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+@media(min-width:900px){.qbar-right{padding:64px 64px}}
+.qbar-right h3{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(18px,2.5vw,26px);
+  font-weight:900;text-transform:uppercase;
+  color:#111;margin-bottom:16px;line-height:1.1;
+}
+.qbar-right p{
+  font-size:14px;line-height:1.85;color:#555;margin-bottom:28px;
+}
+.qbar-right a{
+  display:inline-block;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:#111;border:2px solid #111;padding:11px 24px;transition:all .3s;
+}
+.qbar-right a:hover{background:#111;color:#fff}
 
 /* ===== WHITE SECTION BASE ===== */
 .ws{background:#fff;padding:56px 20px}
@@ -400,28 +396,22 @@ footer{background:#0d3baa;padding:52px 20px 28px}
   </a>
 </section>
 
-<!-- QUOTE BAR — BLUE -->
-<div class="qbar">
-  <blockquote>
-    "All the ends of the world shall remember and turn to the LORD, and all the families of the nations shall worship before You. For the kingdom is the LORD's, And He rules over the nations."
-    <cite>– Psalms 22:27-28</cite>
-  </blockquote>
-</div>
-
-<!-- ABOUT — WHITE -->
-<section class="about-s" id="about">
-  <div class="about-in">
-    <div>
-      <p class="lbl-d">About Pastor Zac</p>
-      <h2>Preaching<br>the Kingdom</h2>
-      <p>Pastor Zac Akinadewo is a Nigerian preacher called to declare the Word of God with boldness and authority. His ministry is grounded in Scripture and carried by the demonstration of the Holy Spirit — calling believers into the fullness of their walk with God.</p>
-      <a href="about.html" class="btn-w">More About Pastor Zac</a>
+<!-- QUOTE + ABOUT SPLIT — exactly like Dunsin -->
+<div class="qbar" id="about">
+  <div class="qbar-inner">
+    <div class="qbar-left">
+      <blockquote>
+        "All the ends of the world shall remember and turn to the LORD, and all the families of the nations shall worship before You. For the kingdom is the LORD's, And He rules over the nations."
+        <cite>– Psalms 22:27-28</cite>
+      </blockquote>
     </div>
-    <div class="about-img">
-      <img src="pastorzac.jpeg" alt="Pastor Zac Akinadewo preaching" style="width:100%;display:block;object-fit:cover;aspect-ratio:3/4"/>
+    <div class="qbar-right">
+      <h3>Proclaiming the Kingdom</h3>
+      <p>Pastor Zac Akinadewo is a Nigerian preacher called to declare the Word of God with boldness and authority. His ministry is grounded in Scripture and carried by the demonstration of the Holy Spirit — calling believers into the fullness of their walk with God.</p>
+      <a href="about.html">More About Pastor Zac</a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- QUOTE BAR — BLUE -->
 <div class="qbar">
