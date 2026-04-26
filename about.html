@@ -82,9 +82,25 @@ footer{background:#0d3baa;padding:52px 20px 28px}
 @media(min-width:960px){.pg-hdr-img img{margin-top:0}}
 .bio{background:#fff;padding:52px 20px}
 @media(min-width:960px){.bio{padding:72px 64px}.bio-in{max-width:1080px;margin:0 auto}}
-.bio p{font-size:15px;line-height:1.95;color:#444;margin-bottom:22px;max-width:720px}
-.scr{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,17px);font-style:italic;color:#222;line-height:1.65;border-left:4px solid #1a4fd6;padding:16px 0 16px 22px;margin:28px 0;background:#f0f4ff}
+.bio p{font-size:15px;line-height:1.95;color:#444;margin-bottom:18px}
+.scr{font-family:'Open Sans',sans-serif;font-size:clamp(15px,3.8vw,17px);font-style:italic;color:#222;line-height:1.65;border-left:4px solid #1a4fd6;padding:16px 0 16px 22px;margin:36px 0;background:#f0f4ff}
 .scr cite{display:block;font-style:normal;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1a4fd6;margin-top:8px}
+/* Bio alternating blocks */
+.bio-block{display:grid;grid-template-columns:1fr;gap:28px;margin-bottom:44px;align-items:start}
+@media(min-width:700px){
+  .bio-block{grid-template-columns:1fr 260px;gap:44px;align-items:center}
+  .bio-block.reverse{grid-template-columns:260px 1fr}
+  .bio-block.reverse .bio-img-side{order:1}
+  .bio-block.reverse .bio-text{order:2}
+}
+.bio-tag{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#1a4fd6;margin-bottom:12px}
+.bio-img-side img{width:100%;display:block;object-fit:cover;aspect-ratio:3/4;border-radius:2px}
+.bio-img-side{flex-shrink:0}
+.bio-img-cap{font-family:'Montserrat',sans-serif;font-size:10px;color:#999;margin-top:8px;font-style:italic;text-align:center}
+.bio-full-img{position:relative;margin-top:48px;overflow:hidden}
+.bio-full-img img{width:100%;display:block;object-fit:cover;max-height:460px;object-position:top center}
+.bio-full-caption{background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 100%);position:absolute;bottom:0;left:0;right:0;padding:40px 24px 24px}
+.bio-full-caption p{font-family:'Open Sans',sans-serif;font-size:clamp(13px,2vw,16px);font-style:italic;color:#fff;max-width:720px;margin:0;line-height:1.65}
 .stats{background:#1a4fd6;padding:40px 20px}
 @media(min-width:960px){.stats{padding:56px 64px}}
 .sg{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;text-align:center}
@@ -145,18 +161,78 @@ footer{background:#0d3baa;padding:52px 20px 28px}
     <div>
       <p class="lbl-b">His Story</p>
       <h1>About<br>Pastor Zac</h1>
-      <p>Pastor Zac Akinadewo was born with a heart for the Word of God. A divine calling to preach the Gospel was made clear in his youth, and he surrendered fully to full-time ministry.</p>
+      <p>Dr. Zacchaeus Akinadewo — Lead Pastor, visionary leader, accomplished professional, and gospel music minister. A man whose life is devoted to advancing God's kingdom in ministry, music, and enterprise.</p>
     </div>
     <div class="pg-hdr-img"><img src="about1.jpeg" alt="Pastor Zac Akinadewo" style="width:100%;display:block;object-fit:cover;object-position:top center"/></div>
   </div>
 </section>
+
 <section class="bio"><div class="bio-in">
-  <p>Pastor Zac Akinadewo is a Nigerian preacher called to declare the Word of God with boldness and authority. Over more than two decades in ministry, he has preached at conferences, crusades, and assemblies across Nigeria and beyond — carrying a consistent message of the Kingdom of God, revival, and discipleship.</p>
+
+  <!-- ── CREDENTIALS & INTRO ── -->
+  <div class="bio-block">
+    <div class="bio-text">
+      <p class="bio-tag">Leadership & Ministry</p>
+      <p>Dr. Zacchaeus Akinadewo (DBA, FCA, FIMC, RPA, MBA, FCTI, ACMA, BSc, DFAI, CMP, CMC, MA), widely known as <strong>Pastor Zac Akinadewo</strong>, is the Lead Pastor of Word of Faith Chapel (MCCSW Word of Faith Chapel) based in Abuja, Nigeria. He is a servant of God, visionary leader, and accomplished professional whose life is devoted to advancing God's kingdom while demonstrating excellence across ministry, music, and enterprise.</p>
+      <p>An economist by training and a graduate of Ambrose Alli University, Dr. Akinadewo has built a distinguished career marked by integrity, diligence, and continuous growth. He is a Fellow of the Institute of Chartered Accountants of Nigeria (ICAN), a Fellow of the Chartered Institute of Taxation of Nigeria (FCTI), and holds memberships with the Chartered Institute of Management Accountants of Nigeria (CIMAN), and the Advertising Practitioners Council of Nigeria (APCON).</p>
+    </div>
+    <div class="bio-img-side">
+      <img src="about2.jpeg" alt="Pastor Zac Akinadewo"/>
+    </div>
+  </div>
+
   <div class="scr">"But you have come to Mount Zion, to the city of the living God, the heavenly Jerusalem. You have come to thousands upon thousands of angels in joyful assembly, to the church of the firstborn, whose names are written in heaven."<cite>– Hebrews 12:22-23</cite></div>
-  <p>He is the founder of The Outpouring Ministry and convenes the annual Fire Conference — a gathering that has seen thousands encounter the living God. His ministry is marked by the demonstration of the Holy Spirit, healing of the sick, and the salvation of souls.</p>
+
+  <!-- ── PROFESSIONAL JOURNEY ── -->
+  <div class="bio-block reverse">
+    <div class="bio-img-side">
+      <img src="about3.jpeg" alt="Pastor Zac at Capernaum — the Town of Jesus"/>
+      <p class="bio-img-cap">Capernaum — The Town of Jesus</p>
+    </div>
+    <div class="bio-text">
+      <p class="bio-tag">Professional Journey</p>
+      <p>He began his career with Hammco Engineering Works as an Accounting Officer, later joining Israel Akinadewo & Co. as Senior Audit Personnel, and rising to Audit Manager at Olanrewaju Akinola & Co. His professional journey took a defining turn at Gems Communications Limited, where he served as Head of Finance, Administration, and Human Resources for over a decade.</p>
+      <p>The wealth of experience gained led to the establishment of <strong>Graza Media Limited</strong>, a platform through which he continues to influence the media and business landscape with innovation and purpose.</p>
+      <p>Driven by a passion for excellence and global relevance, Dr. Akinadewo has participated in international trainings including a Financial Modelling Masterclass in Johannesburg; a Leadership Programme at the University of Cape Town; and Financial Planning and Analysis training at the London School of Business and Finance. He obtained his MBA from the Metropolitan School of Business and Management, United Kingdom.</p>
+    </div>
+  </div>
+
   <div class="scr">"After this I will return and will rebuild the tabernacle of David, which has fallen down; I will rebuild its ruins, and I will set it up; so that the rest of mankind may seek the LORD, even all the Gentiles who are called by My name."<cite>– Acts 15:16-17</cite></div>
-  <p>Pastor Zac is a devoted family man. He believes the Church is the hope of the world and that every believer is called to be a carrier of the Gospel. His ministry exists to fan that flame — in pulpits, through media, and in the lives of everyday people.</p>
+
+  <!-- ── MINISTRY ── -->
+  <div class="bio-block">
+    <div class="bio-text">
+      <p class="bio-tag">The Call to Ministry</p>
+      <p>At the heart of his life's work is his divine calling into ministry. As Lead Pastor of Word of Faith Chapel in Abuja, Pastor Zac is committed to teaching the Word with clarity, raising believers in faith, and guiding people into a deeper, more practical walk with God. His ministry is marked by a message of faith, purpose, gratitude, and total dependence on God — with a strong emphasis on living a life that reflects Christ in both character and results.</p>
+    </div>
+    <div class="bio-img-side">
+      <img src="about4.jpeg" alt="Pastor Zac at a holy site in Israel"/>
+    </div>
+  </div>
+
   <div class="scr">"But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint."<cite>– Isaiah 40:31</cite></div>
+
+  <!-- ── MUSIC MINISTRY ── -->
+  <div class="bio-block reverse">
+    <div class="bio-img-side">
+      <img src="about5.jpeg" alt="Pastor Zac Akinadewo — passport photo"/>
+    </div>
+    <div class="bio-text">
+      <p class="bio-tag">Music Ministry</p>
+      <p>Music remains a powerful expression of his calling. Family accounts recall that as young as four years old, he would confidently offer to sing — already demonstrating a gift that would become a channel of ministry. During his secondary school years, he began composing songs for his father's church and became the first choir master of the church's Lagos branch.</p>
+      <p>In the year 2000, he released his first music project titled <strong>"Shine Your Eye,"</strong> marking the beginning of his recording ministry. Today, Pastor Zac is recognised as a gospel music minister whose sound blends contemporary African expressions with deep, spirit-filled worship. One of his notable releases, <strong>"Mo Mope Mi Wa Fun Baba"</strong> ("I Bring My Thanksgiving to the Father"), has reached thousands of listeners.</p>
+      <p>A gifted multi-instrumentalist, he plays the keyboard, guitar, drums, and saxophone — an expression of his deep connection to music and his commitment to excellence in ministry.</p>
+    </div>
+  </div>
+
+  <!-- ── FULL WIDTH CLOSING PHOTO ── -->
+  <div class="bio-full-img">
+    <img src="about6.jpeg" alt="Pastor Zac Akinadewo"/>
+    <div class="bio-full-caption">
+      <p>"Dr. Zacchaeus Akinadewo's life is a reflection of divine purpose in action — a man who understands that true success is measured by obedience to God's call."</p>
+    </div>
+  </div>
+
 </div></section>
 <div class="qbar"><blockquote>"For the kingdom of God is not in word, but in power."<cite>– 1 Corinthians 4:20</cite></blockquote></div>
 <section class="stats"><div class="sg">
